@@ -99,7 +99,7 @@ in {
     hardware.enableRedistributableFirmware = lib.mkDefault cfg.none.enable;
 
     # update microcode
-    hardware.cpu.amd.updateMicrocode = lib.mkIf (cfg.none.enable && facterLib.isCpuAmd report) (lib.mkDefault config.hardware.enableRedistributableFirmware);
-    hardware.cpu.intel.updateMicrocode = lib.mkIf (cfg.none.enable && facterLib.isCpuIntel report) (lib.mkDefault config.hardware.enableRedistributableFirmware);
+    hardware.cpu.amd.updateMicrocode = lib.mkIf (cfg.none.enable && facterLib.hasAmdCpu report) (lib.mkDefault config.hardware.enableRedstributableFirmware);
+    hardware.cpu.intel.updateMicrocode = lib.mkIf (cfg.none.enable && facterLib.hasIntelCpu report) (lib.mkDefault config.hardware.enableRedistributableFirmware);
   };
 }

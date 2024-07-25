@@ -61,13 +61,13 @@ in rec {
     )
   ];
 
-  isCpuAmd = {hardware, ...}:
-    builtins.filter
+  hasAmdCpu = {hardware, ...}:
+    builtins.any
     (device: device.hardware_class == "cpu" && device.detail.vendor_name == "AuthenticAMD")
     hardware;
 
-  isCpuIntel = {hardware, ...}:
-    builtins.filter
+  hasIntelCpu = {hardware, ...}:
+    builtins.any
     (device: device.hardware_class == "cpu" && device.detail.vendor_name == "GenuineIntel")
     hardware;
 
