@@ -24,7 +24,7 @@ $ nix --extra-experimental-features "flakes nix-command" run github:numtide/nixo
 
 Then use the generated `facter.json` with the NixOS module as follows:
 
-# NixOS with flakes
+## NixOS with flakes
 
 ```nix
 # flake.nix
