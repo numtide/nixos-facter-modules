@@ -1,5 +1,4 @@
-{ lib, ... }:
-{
+{lib, ...}: {
   imports = [
     ./boot.nix
     ./networking
@@ -7,6 +6,8 @@
   ];
 
   options.facter = with lib; {
-    report = mkOption { type = types.raw; };
+    report = mkOption {
+      type = types.raw;
+    };
   };
 }

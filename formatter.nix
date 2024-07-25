@@ -1,14 +1,13 @@
-{ pkgs, inputs, ... }:
-let
-   hasNixFmt = pkgs.lib.meta.availableOn  pkgs.stdenv.buildPlatform pkgs.nixfmt-rfc-style.compiler;
-in
+{
+  pkgs,
+  inputs,
+  ...
+}:
 inputs.treefmt-nix.lib.mkWrapper pkgs {
   projectRootFile = ".git/config";
 
   programs = {
-    nixfmt.enable = hasNixFmt;
-    nixfmt.package = pkgs.nixfmt-rfc-style;
-
+    alejandra.enable = true;
     deadnix.enable = true;
     gofumpt.enable = true;
     prettier.enable = true;
@@ -31,7 +30,7 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
         priority = 2;
       };
 
-      nixfmt = pkgs.lib.mkIf hasNixFmt {
+      alejandra = {
         priority = 3;
       };
 
@@ -40,7 +39,7 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
           "--tab-width"
           "4"
         ];
-        includes = [ "*.{css,html,js,json,jsx,md,mdx,scss,ts,yaml}" ];
+        includes = ["*.{css,html,js,json,jsx,md,mdx,scss,ts,yaml}"];
       };
     };
   };
