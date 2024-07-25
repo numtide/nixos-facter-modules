@@ -10,7 +10,8 @@
     flake-compat.url = "github:nix-community/flake-compat";
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.blueprint {
       inherit inputs;
       systems = [

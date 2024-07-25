@@ -1,9 +1,17 @@
 # This file provides backward compatibility to nix < 2.4 clients
-{system ? builtins.currentSystem}: let
+{
+  system ? builtins.currentSystem,
+}:
+let
   lock = builtins.fromJSON (builtins.readFile ./flake.lock);
 
   root = lock.nodes.${lock.root};
-  inherit (lock.nodes.${root.inputs.flake-compat}.locked) owner repo rev narHash;
+  inherit (lock.nodes.${root.inputs.flake-compat}.locked)
+    owner
+    repo
+    rev
+    narHash
+    ;
 
   flake-compat = fetchTarball {
     url = "https://github.com/${owner}/${repo}/archive/${rev}.tar.gz";
@@ -15,4 +23,4 @@
     src = ./.;
   };
 in
-  flake.defaultNix
+flake.defaultNix

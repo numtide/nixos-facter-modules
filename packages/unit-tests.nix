@@ -5,9 +5,7 @@
   inputs,
   ...
 }:
-pkgs.runCommandLocal pname {
-  nativeBuildInputs = [pkgs.nix-unit];
-} ''
+pkgs.runCommandLocal pname { nativeBuildInputs = [ pkgs.nix-unit ]; } ''
   export HOME="$(realpath .)"
   find ${flake} -type f -name "*.unit.nix" \
       -exec nix-unit --eval-store "$HOME" \

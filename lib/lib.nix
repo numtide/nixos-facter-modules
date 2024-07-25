@@ -1,95 +1,170 @@
-lib: let
+lib:
+let
   isAllOf = filters: device: lib.fold (next: memo: memo && (next device)) true filters;
   isOneOf = filters: device: lib.fold (next: memo: memo || (next device)) false filters;
 
   canonicalSort = list: with lib; sort (a: b: a < b) (unique list);
-in {
-  inherit
-    isAllOf
-    isOneOf
-    canonicalSort
-    ;
+in
+{
+  inherit isAllOf isOneOf canonicalSort;
 
-  isMassStorageController = {base_class ? {}, ...}:
+  isMassStorageController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 1;
-  isNetworkController = {base_class ? {}, ...}:
+  isNetworkController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 2;
-  isDisplayController = {base_class ? {}, ...}:
+  isDisplayController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 3;
-  isMultimediaController = {base_class ? {}, ...}:
+  isMultimediaController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 4;
-  isMemoryController = {base_class ? {}, ...}:
+  isMemoryController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 5;
-  isBridge = {base_class ? {}, ...}:
+  isBridge =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 6;
-  isCommunicationController = {base_class ? {}, ...}:
+  isCommunicationController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 7;
-  isGenericSystemPeripheral = {base_class ? {}, ...}:
+  isGenericSystemPeripheral =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 8;
-  isInputDeviceController = {base_class ? {}, ...}:
+  isInputDeviceController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 9;
-  isDockingStation = {base_class ? {}, ...}:
+  isDockingStation =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 10;
-  isProcessor = {base_class ? {}, ...}:
+  isProcessor =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 11;
-  isSerialBusController = {base_class ? {}, ...}:
+  isSerialBusController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 12;
-  isWirelessController = {base_class ? {}, ...}:
+  isWirelessController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 13;
-  isIntelligentController = {base_class ? {}, ...}:
+  isIntelligentController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 14;
-  isSatelliteCommunicationsController = {base_class ? {}, ...}:
+  isSatelliteCommunicationsController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 15;
-  isEncryptionController = {base_class ? {}, ...}:
+  isEncryptionController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 16;
-  isSignalProcessingController = {base_class ? {}, ...}:
+  isSignalProcessingController =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 17;
-  isProcessingAccelerator = {base_class ? {}, ...}:
+  isProcessingAccelerator =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 18;
-  isNonEssentialInstrumentation = {base_class ? {}, ...}:
+  isNonEssentialInstrumentation =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 19;
-  isCoprocessor = {base_class ? {}, ...}:
+  isCoprocessor =
+    {
+      base_class ? { },
+      ...
+    }:
     (base_class.value or null) == 64;
 
-  isFirewireController = {
-    base_class ? {},
-    sub_class ? {},
-    ...
-  }:
-    (base_class.value or null)
-    == 12
-    && (sub_class.value or null) == 0;
+  isFirewireController =
+    {
+      base_class ? { },
+      sub_class ? { },
+      ...
+    }:
+    (base_class.value or null) == 12 && (sub_class.value or null) == 0;
 
-  isUsbController = {
-    base_class ? {},
-    sub_class ? {},
-    ...
-  }:
-    (base_class.value or null)
-    == 12
-    && (sub_class.value or null) == 3;
+  isUsbController =
+    {
+      base_class ? { },
+      sub_class ? { },
+      ...
+    }:
+    (base_class.value or null) == 12 && (sub_class.value or null) == 3;
 
-  hasAmdCpu = {hardware, ...}:
-    builtins.any
-    (device: device.hardware_class == "cpu" && device.detail.vendor_name == "AuthenticAMD")
-    hardware;
+  hasAmdCpu =
+    { hardware, ... }:
+    builtins.any (
+      device: device.hardware_class == "cpu" && device.detail.vendor_name == "AuthenticAMD"
+    ) hardware;
 
-  hasIntelCpu = {hardware, ...}:
-    builtins.any
-    (device: device.hardware_class == "cpu" && device.detail.vendor_name == "GenuineIntel")
-    hardware;
+  hasIntelCpu =
+    { hardware, ... }:
+    builtins.any (
+      device: device.hardware_class == "cpu" && device.detail.vendor_name == "GenuineIntel"
+    ) hardware;
 
-  canonicalize = attrs:
-    lib.mapAttrsRecursive (_: value:
-      if builtins.isList value
-      then canonicalSort value
-      else value)
-    attrs;
+  canonicalize =
+    attrs:
+    lib.mapAttrsRecursive (
+      _: value: if builtins.isList value then canonicalSort value else value
+    ) attrs;
 
-  devicesFilter = {
-    vendorId,
-    deviceIds,
-  }:
+  devicesFilter =
+    { vendorId, deviceIds }:
     isAllOf [
       (item: (item.vendor.value or null) == vendorId)
       (item: builtins.elem (item.device.value or null) deviceIds)

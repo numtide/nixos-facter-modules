@@ -1,12 +1,9 @@
-{
-  pkgs,
-  ...
-}: {
+_: {
   nixpkgs.hostPlatform = "x86_64-linux";
 
   boot = {
     growPartition = true;
-    kernelParams = ["console=ttyS0"];
+    kernelParams = [ "console=ttyS0" ];
     loader = {
       timeout = 0;
       grub.device = "/dev/vda";
@@ -26,7 +23,7 @@
 
   users.users.facter = {
     isNormalUser = true;
-    extraGroups = ["wheel"];
+    extraGroups = [ "wheel" ];
   };
   services.getty.autologinUser = "facter";
   security.sudo.wheelNeedsPassword = false;

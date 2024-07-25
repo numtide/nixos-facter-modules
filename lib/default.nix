@@ -1,1 +1,1 @@
-{inputs, ...}: import ./lib.nix {inherit inputs;}
+{ inputs, ... }: import ./lib.nix { inherit inputs; }

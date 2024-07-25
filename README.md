@@ -1,7 +1,6 @@
 # nixos-facter-modules
 
-> [!NOTE]
-> **Status: vaporware**
+> [!NOTE] > **Status: vaporware**
 
 A series of [NixOS modules] to be used in conjunction with [NixOS Facter].
 
@@ -19,7 +18,7 @@ By default, these modules enable or disable themselves based on detected hardwar
 To generate a hardware report run the following:
 
 ```console
-$ nix run github:numtide/nixos-facter > report.json 
+$ nix run github:numtide/nixos-facter > report.json
 ```
 
 Then use the generated report with the NixOS module as follows:
@@ -31,7 +30,7 @@ Then use the generated report with the NixOS module as follows:
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
         nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
     };
-   
+
     outputs = inputs @ {
         nixpkgs,
         ...
@@ -40,7 +39,7 @@ Then use the generated report with the NixOS module as follows:
             modules = [
                 inputs.nixos-facter-modules.nixosModules.facter
                 { config.facter.reportPath = ./report.json; }
-                # ...            
+                # ...
             ];
         };
     };
