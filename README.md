@@ -18,10 +18,10 @@ By default, these modules enable or disable themselves based on detected hardwar
 To generate a hardware report run the following:
 
 ```console
-$ nix run github:numtide/nixos-facter > report.json
+$ nix run github:numtide/nixos-facter > factor.json
 ```
 
-Then use the generated report with the NixOS module as follows:
+Then use the generated `factor.json` with the NixOS module as follows:
 
 ```nix
 # flake.nix
@@ -38,7 +38,7 @@ Then use the generated report with the NixOS module as follows:
         nixosConfigurations.basic = nixpkgs.lib.nixosSystem {
             modules = [
                 inputs.nixos-facter-modules.nixosModules.facter
-                { config.facter.reportPath = ./report.json; }
+                { config.facter.reportPath = ./factor.json; }
                 # ...
             ];
         };
