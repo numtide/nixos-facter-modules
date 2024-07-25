@@ -52,12 +52,10 @@ in
   config = {
 
     # KVM support
-    boot.kernelModules = lib.mkIf cfg.none.enable (
-      lib.flatten [
-        (lib.optionals (cfg.none.enable && (facterLib.supportsIntelKvm report)) [ "kvm-intel" ])
-        (lib.optionals (cfg.none.enable && (facterLib.supportsAmdKvm report)) [ "kvm-amd" ])
-      ]
-    );
+    boot.kernelModules = lib.flatten [
+      (lib.optionals (facterLib.supportsIntelKvm report) [ "kvm-intel" ])
+      (lib.optionals (facterLib.supportsAmdKvm report) [ "kvm-amd" ])
+    ];
 
     # virtio & qemu
     boot.initrd = {
