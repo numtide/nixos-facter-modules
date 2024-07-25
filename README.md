@@ -24,7 +24,7 @@ $ nix run github:numtide/nixos-facter > report.json
 Then use the generated report with the NixOS module as follows:
 
 ```nix
-# flake
+# flake.nix
 {
     inputs = {
         nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
