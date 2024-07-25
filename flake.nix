@@ -7,9 +7,11 @@
     nixpkgs.follows = "nixos-facter/nixpkgs";
     nixos-facter.url = "github:numtide/nixos-facter";
     treefmt-nix.follows = "nixos-facter/treefmt-nix";
+    flake-compat.url = "github:nix-community/flake-compat";
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.blueprint {
       inherit inputs;
       systems = [
