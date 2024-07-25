@@ -1,8 +1,4 @@
-{
-  pkgs,
-  perSystem,
-  ...
-}:
+{ pkgs, perSystem, ... }:
 perSystem.devshell.mkShell {
   env = [
     {
@@ -12,7 +8,7 @@ perSystem.devshell.mkShell {
   ];
 
   commands = [
-    {package = perSystem.nixos-facter.default;}
-    {package = pkgs.nix-unit;}
+    { package = perSystem.nixos-facter.default; }
+    { package = pkgs.nix-unit; }
   ];
 }
