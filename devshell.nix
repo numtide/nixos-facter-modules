@@ -13,6 +13,6 @@ perSystem.devshell.mkShell {
 
   commands = [
     {package = perSystem.nixos-facter.default;}
-    {package = perSystem.nix-unit.default;}
+    {package = pkgs.nix-unit;}
   ];
 }

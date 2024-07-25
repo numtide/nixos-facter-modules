@@ -4,7 +4,6 @@
   inputs = {
     blueprint.follows = "nixos-facter/blueprint";
     devshell.follows = "nixos-facter/devshell";
-    nix-unit.follows = "nixos-facter/nix-unit";
     nixpkgs.follows = "nixos-facter/nixpkgs";
     nixos-facter.url = "github:numtide/nixos-facter";
     treefmt-nix.follows = "nixos-facter/treefmt-nix";

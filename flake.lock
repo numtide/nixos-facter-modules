@@ -298,10 +298,6 @@
           "nixos-facter",
           "devshell"
         ],
-        "nix-unit": [
-          "nixos-facter",
-          "nix-unit"
-        ],
         "nixos-facter": "nixos-facter",
         "nixpkgs": [
           "nixos-facter",
