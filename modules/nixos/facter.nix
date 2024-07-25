@@ -4,6 +4,7 @@
     ./boot.nix
     ./networking
     ./virtualisation.nix
+    ./firmware.nix
   ];
 
   options.facter = with lib; {

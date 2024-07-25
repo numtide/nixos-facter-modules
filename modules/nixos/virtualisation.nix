@@ -88,17 +88,5 @@ in
 
     # systemd-nspawn
     boot.isContainer = cfg.systemd_nspawn.enable;
-
-    # none (e.g. bare-metal)
-    # provide firmware for devices that might not have been detected by nixos-facter
-    hardware.enableRedistributableFirmware = lib.mkDefault cfg.none.enable;
-
-    # update microcode
-    hardware.cpu.amd.updateMicrocode = lib.mkIf (cfg.none.enable && facterLib.hasAmdCpu report) (
-      lib.mkDefault config.hardware.enableRedstributableFirmware
-    );
-    hardware.cpu.intel.updateMicrocode = lib.mkIf (cfg.none.enable && facterLib.hasIntelCpu report) (
-      lib.mkDefault config.hardware.enableRedistributableFirmware
-    );
   };
 }
