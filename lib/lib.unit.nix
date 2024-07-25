@@ -1,9 +1,8 @@
 let
-  # todo is there a better way of doing this?
-  pkgs = import <nixpkgs> {};
-  inherit (pkgs) lib;
+  # load the flake we're in
+  flake = import ./.. {};
 
-  facterLib = import ./lib.nix lib;
+  facterLib = import ./lib.nix flake.inputs.nixpkgs.lib;
 
   usbController = {
     base_class = {

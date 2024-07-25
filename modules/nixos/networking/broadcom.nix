@@ -1,9 +1,10 @@
 {
   lib,
   config,
-  facterLib,
   ...
 }: let
+  facterLib = import ../../../lib/lib.nix lib;
+
   inherit (config.facter) report;
   cfg = config.facter.networking.broadcom;
 in {

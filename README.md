@@ -13,3 +13,36 @@ By default, these modules enable or disable themselves based on detected hardwar
 [NixOS modules]: https://wiki.nixos.org/wiki/NixOS_modules
 [NixOS Facter]: https://github.com/numtide/nixos-facter
 [NixOS Hardware]: https://github.com/NixOS/nixos-hardware
+
+## Getting started
+
+To generate a hardware report run the following:
+
+```console
+$ nix run github:numtide/nixos-facter > report.json 
+```
+
+Then use the generated report with the NixOS module as follows:
+
+```nix
+# flake
+{
+    inputs = {
+        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+        nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+    };
+   
+    outputs = inputs @ {
+        nixpkgs,
+        ...
+    }: {
+        nixosConfigurations.basic = nixpkgs.lib.nixosSystem {
+            modules = [
+                inputs.nixos-facter-modules.nixosModules.facter
+                { config.facter.reportPath = ./report.json; }
+                # ...            
+            ];
+        };
+    };
+}
+```

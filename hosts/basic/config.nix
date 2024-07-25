@@ -1,15 +1,7 @@
 {
-  flake,
-  inputs,
   pkgs,
   ...
 }: {
-  imports = with flake.modules.nixos; [facter];
-
-  environment.systemPackages = [
-    inputs.nixos-facter.packages.${pkgs.system}.default
-  ];
-
   nixpkgs.hostPlatform = "x86_64-linux";
 
   boot = {

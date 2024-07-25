@@ -1,9 +1,10 @@
 {
   lib,
   config,
-  facterLib,
   ...
 }: let
+  facterLib = import ../../lib/lib.nix lib;
+
   cfg = config.facter.boot;
   inherit (config.facter) report;
 in {

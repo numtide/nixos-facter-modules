@@ -1,8 +1,14 @@
 lib: let
-  inherit (lib) fold mapAttrsRecursive sort unique;
-in rec {
-  isAllOf = filters: device: fold (next: memo: memo && (next device)) true filters;
-  isOneOf = filters: device: fold (next: memo: memo || (next device)) false filters;
+  isAllOf = filters: device: lib.fold (next: memo: memo && (next device)) true filters;
+  isOneOf = filters: device: lib.fold (next: memo: memo || (next device)) false filters;
+
+  canonicalSort = list: with lib; sort (a: b: a < b) (unique list);
+in {
+  inherit
+    isAllOf
+    isOneOf
+    canonicalSort
+    ;
 
   isMassStorageController = {base_class ? {}, ...}:
     (base_class.value or null) == 1;
@@ -45,21 +51,23 @@ in rec {
   isCoprocessor = {base_class ? {}, ...}:
     (base_class.value or null) == 64;
 
-  isFirewireController = isAllOf [
-    isSerialBusController
-    (
-      {sub_class ? {}, ...}:
-        (sub_class.value or 9999) == 0
-    )
-  ];
+  isFirewireController = {
+    base_class ? {},
+    sub_class ? {},
+    ...
+  }:
+    (base_class.value or null)
+    == 12
+    && (sub_class.value or null) == 0;
 
-  isUsbController = isAllOf [
-    isSerialBusController
-    (
-      {sub_class ? {}, ...}:
-        (sub_class.value or 9999) == 3
-    )
-  ];
+  isUsbController = {
+    base_class ? {},
+    sub_class ? {},
+    ...
+  }:
+    (base_class.value or null)
+    == 12
+    && (sub_class.value or null) == 3;
 
   hasAmdCpu = {hardware, ...}:
     builtins.any
@@ -72,13 +80,11 @@ in rec {
     hardware;
 
   canonicalize = attrs:
-    mapAttrsRecursive (_: value:
+    lib.mapAttrsRecursive (_: value:
       if builtins.isList value
       then canonicalSort value
       else value)
     attrs;
-
-  canonicalSort = list: sort (a: b: a < b) (unique list);
 
   devicesFilter = {
     vendorId,
@@ -90,9 +96,4 @@ in rec {
     ];
 
   pci.devices = import ./pci/devices.nix;
-
-  nixosModules = reportPath: [
-    (import ../modules/nixos/facter.nix)
-    {config.facter.report = builtins.fromJSON (builtins.readFile reportPath);}
-  ];
 }

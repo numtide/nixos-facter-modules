@@ -1,1 +1,1 @@
-{inputs, ...}: import ./lib.nix inputs.nixpkgs.lib
+{inputs, ...}: import ./lib.nix {inherit inputs;}
