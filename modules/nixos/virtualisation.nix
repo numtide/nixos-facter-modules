@@ -50,6 +50,15 @@ in
   };
 
   config = {
+
+    # KVM support
+    boot.kernelModules = lib.mkIf cfg.none.enable (
+      lib.flatten [
+        (lib.optionals (cfg.none.enable && (facterLib.supportsIntelKvm report)) [ "kvm-intel" ])
+        (lib.optionals (cfg.none.enable && (facterLib.supportsAmdKvm report)) [ "kvm-amd" ])
+      ]
+    );
+
     # virtio & qemu
     boot.initrd = {
       kernelModules = lib.optionals cfg.qemu.enable [
@@ -58,6 +67,7 @@ in
         "virtio_rng"
         "virtio_gpu"
       ];
+
       availableKernelModules =
         (lib.optionals cfg.qemu.enable [
           "virtio_net"

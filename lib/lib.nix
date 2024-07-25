@@ -4,9 +4,23 @@ let
   isOneOf = filters: device: lib.fold (next: memo: memo || (next device)) false filters;
 
   canonicalSort = list: with lib; sort (a: b: a < b) (unique list);
+
+  hasAmdCpu =
+    { hardware, ... }:
+    builtins.any (
+      device: device.hardware_class == "cpu" && device.detail.vendor_name == "AuthenticAMD"
+    ) hardware;
+
+  hasIntelCpu =
+    { hardware, ... }:
+    builtins.any (
+      device: device.hardware_class == "cpu" && device.detail.vendor_name == "GenuineIntel"
+    ) hardware;
+
 in
 {
   inherit isAllOf isOneOf canonicalSort;
+  inherit hasAmdCpu hasIntelCpu;
 
   isMassStorageController =
     {
@@ -145,17 +159,29 @@ in
     }:
     (base_class.value or null) == 12 && (sub_class.value or null) == 3;
 
-  hasAmdCpu =
-    { hardware, ... }:
-    builtins.any (
-      device: device.hardware_class == "cpu" && device.detail.vendor_name == "AuthenticAMD"
-    ) hardware;
+  # Intel VT-x, virtualization support enabled in BIOS.
+  supportsIntelKvm =
+    report:
+    (hasIntelCpu report)
+    && builtins.any (
+      {
+        detail ? { },
+        ...
+      }:
+      builtins.elem "vmx" detail.features or [ ]
+    ) report.hardware;
 
-  hasIntelCpu =
-    { hardware, ... }:
-    builtins.any (
-      device: device.hardware_class == "cpu" && device.detail.vendor_name == "GenuineIntel"
-    ) hardware;
+  # AMD SVM,virtualization enabled in BIOS.
+  supportsAmdKvm =
+    report:
+    (hasAmdCpu report)
+    && builtins.any (
+      {
+        detail ? { },
+        ...
+      }:
+      builtins.elem "svm" detail.features or [ ]
+    ) report.hardware;
 
   canonicalize =
     attrs:
