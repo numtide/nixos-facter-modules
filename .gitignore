@@ -1,0 +1,5 @@
+.idea
+result*
+*.qcow2
+.data
+report.json
