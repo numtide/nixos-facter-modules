@@ -9,7 +9,8 @@
     treefmt-nix.follows = "nixos-facter/treefmt-nix";
   };
 
-  outputs = inputs:
+  outputs =
+    inputs:
     inputs.blueprint {
       inherit inputs;
       systems = [
