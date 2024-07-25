@@ -87,7 +87,9 @@ in {
 
     # parallels
     hardware.parallels.enable = cfg.parallels.enable;
-    nixpkgs.config.allowUnfreePredicate = lib.mkIf cfg.parallels.enable (pkg: builtins.elem (lib.getName pkg) ["prl-tools"]);
+    nixpkgs.config = lib.mkIf (config.nixpkgs.pkgs == null) {
+      allowUnfreePredicate = lib.mkIf cfg.parallels.enable (pkg: builtins.elem (lib.getName pkg) ["prl-tools"]);
+    };
 
     # systemd-nspawn
     boot.isContainer = cfg.systemd_nspawn.enable;
