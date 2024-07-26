@@ -6,6 +6,6 @@
 }:
 {
   nixpkgs = lib.mkIf (!options.nixpkgs.pkgs.isDefined) {
-    hostPlatform = config.facter.system;
+    hostPlatform = config.facter.report.system;
   };
 }
