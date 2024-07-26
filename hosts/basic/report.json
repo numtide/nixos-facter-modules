@@ -1,5 +1,6 @@
 {
     "virtualisation": "kvm",
+    "system": "x86_64-linux",
     "hardware": [
         {
             "index": 1,
