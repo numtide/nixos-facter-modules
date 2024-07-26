@@ -17,7 +17,10 @@ in
     };
   };
 
-  config.networking = lib.mkIf cfg._2200BG.enable { enableIntel2200BGFirmware = true; };
+  config = {
+    networking = lib.mkIf cfg._2200BG.enable { enableIntel2200BGFirmware = true; };
 
-  config.hardware = lib.mkIf cfg._3945ABG.enable { enableRedistributableFirmware = true; };
+    hardware = lib.mkIf cfg._3945ABG.enable { enableRedistributableFirmware = true; };
+  };
+
 }
