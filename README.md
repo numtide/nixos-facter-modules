@@ -26,6 +26,10 @@ Then use the generated `facter.json` with the NixOS module as follows:
 
 ## NixOS with flakes
 
+We are currently assuming that a the system uses [disko](https://github.com/nix-community/disko),
+so we have not implemented `fileSystems` configuration. If you don't use disko, you have to currently specify
+that part of the configuration yourself or take it from `nixos-generate-config`.
+
 ```nix
 # flake.nix
 {
@@ -48,6 +52,7 @@ Then use the generated `facter.json` with the NixOS module as follows:
     };
 }
 ```
+
 
 ## Non-flakes NixOS
 
