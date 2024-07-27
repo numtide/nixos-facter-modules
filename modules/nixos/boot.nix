@@ -11,7 +11,7 @@ in
   };
 
   config = lib.mkIf cfg.enable {
-    boot.initrd.availableKernelModules = builtins.filter (dm: dm != null) (
+    boot.initrd.availableKernelModules = lib.filter (dm: dm != null) (
       map
         (
           {
@@ -21,7 +21,7 @@ in
           driver_module
         )
         (
-          builtins.filter (
+          lib.filter (
             with facterLib;
             isOneOf [
               # Needed if we want to use the keyboard when things go wrong in the initrd.

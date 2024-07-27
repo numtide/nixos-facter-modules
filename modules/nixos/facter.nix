@@ -69,7 +69,7 @@ in
         map (value@{ loc, ... }: lib.setAttrByPath loc value) (
           # we collect the options first with simple option filter, and then we filter them some more, otherwise we get
           # a max-call depth exceeded error (dunno why)
-          builtins.filter touchedByFacter (lib.collect lib.isOption otherOptions)
+          lib.filter touchedByFacter (lib.collect lib.isOption otherOptions)
         )
       );
 
@@ -98,7 +98,7 @@ in
               )
               (
                 # we only want facter modules
-                builtins.filter ({ file, ... }: lib.hasPrefix modulePath file) definitionsWithLocations
+                lib.filter ({ file, ... }: lib.hasPrefix modulePath file) definitionsWithLocations
               )
           )
         )
