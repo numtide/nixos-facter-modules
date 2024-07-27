@@ -1,6 +1,4 @@
 _: {
-  nixpkgs.hostPlatform = "x86_64-linux";
-
   boot = {
     growPartition = true;
     kernelParams = [ "console=ttyS0" ];
