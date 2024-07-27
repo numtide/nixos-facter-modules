@@ -66,7 +66,7 @@ in
           eval.success && eval.value;
       in
       lib.fold (a: b: lib.recursiveUpdate a b) { } (
-        builtins.map (value@{ loc, ... }: lib.setAttrByPath loc value) (
+        map (value@{ loc, ... }: lib.setAttrByPath loc value) (
           # we collect the options first with simple option filter, and then we filter them some more, otherwise we get
           # a max-call depth exceeded error (dunno why)
           builtins.filter touchedByFacter (lib.collect lib.isOption otherOptions)
@@ -88,7 +88,7 @@ in
           _:
           { definitionsWithLocations, ... }:
           builtins.listToAttrs (
-            builtins.map
+            map
               (
                 { file, value }:
                 {

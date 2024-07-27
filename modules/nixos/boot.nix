@@ -12,7 +12,7 @@ in
 
   config = lib.mkIf cfg.enable {
     boot.initrd.availableKernelModules = builtins.filter (dm: dm != null) (
-      builtins.map
+      map
         (
           {
             driver_module ? null,
