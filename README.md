@@ -33,22 +33,30 @@ that part of the configuration yourself or take it from `nixos-generate-config`.
 ```nix
 # flake.nix
 {
-    inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-        nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-    };
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+  };
 
-    outputs = inputs @ {
-        nixpkgs,
-        ...
-    }: {
-        nixosConfigurations.basic = nixpkgs.lib.nixosSystem {
-            modules = [
-                inputs.nixos-facter-modules.nixosModules.facter
-                { config.facter.reportPath = ./facter.json; }
-                # ...
-            ];
-        };
+  outputs =
+    inputs@{ nixpkgs, ... }:
+    {
+      nixosConfigurations.basic = nixpkgs.lib.nixosSystem {
+
+        modules = [
+          inputs.nixos-facter-modules.nixosModules.facter
+          { config.facter.reportPath = ./facter.json; }
+          # If you want to test out nixos-facter, you can add these dummy
+          # values to make the configuration valid. Note that this likely won't boot if
+          # it doesn't match your own partitioning
+          # {
+          #   users.users.root.initialPassword = "fnord23";
+          #   boot.loader.grub.devices = lib.mkForce [ "/dev/sda" ];
+          #   fileSystems."/".device = lib.mkDefault "/dev/sda";
+          # }
+          # ...
+        ];
+      };
     };
 }
 ```
@@ -59,12 +67,12 @@ that part of the configuration yourself or take it from `nixos-generate-config`.
 ```nix
 # configuration.nix
 {
-    imports = [
-      "${(builtins.fetchTarball {
-        url = "https://github.com/numtide/nixos-facter-modules/";
-      })}/modules/nixos/facter.nix"
-    ];
+  imports = [
+    "${
+      (builtins.fetchTarball { url = "https://github.com/numtide/nixos-facter-modules/"; })
+    }/modules/nixos/facter.nix"
+  ];
 
-    config.facter.reportPath = ./facter.json;
+  config.facter.reportPath = ./facter.json;
 }
 ```
