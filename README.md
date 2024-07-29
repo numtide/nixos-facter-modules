@@ -61,7 +61,6 @@ that part of the configuration yourself or take it from `nixos-generate-config`.
 }
 ```
 
-
 ## Non-flakes NixOS
 
 ```nix

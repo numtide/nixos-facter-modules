@@ -183,12 +183,6 @@ in
       builtins.elem "svm" detail.features or [ ]
     ) report.hardware;
 
-  canonicalize =
-    attrs:
-    lib.mapAttrsRecursive (
-      _: value: if builtins.isList value then canonicalSort value else value
-    ) attrs;
-
   devicesFilter =
     { vendorId, deviceIds }:
     isAllOf [

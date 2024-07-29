@@ -20,7 +20,7 @@ in
 with facterLib;
 {
   testIsMassStorageController = {
-    expr = builtins.map isMassStorageController [
+    expr = map isMassStorageController [
       { }
       { base_class = { }; }
       { base_class.value = 2; }
@@ -34,7 +34,7 @@ with facterLib;
     ];
   };
   testIsNetworkController = {
-    expr = builtins.map isNetworkController [
+    expr = map isNetworkController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -48,7 +48,7 @@ with facterLib;
     ];
   };
   testIsDisplayController = {
-    expr = builtins.map isDisplayController [
+    expr = map isDisplayController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -62,7 +62,7 @@ with facterLib;
     ];
   };
   testIsMultimediaController = {
-    expr = builtins.map isMultimediaController [
+    expr = map isMultimediaController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -76,7 +76,7 @@ with facterLib;
     ];
   };
   testIsMemoryController = {
-    expr = builtins.map isMemoryController [
+    expr = map isMemoryController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -90,7 +90,7 @@ with facterLib;
     ];
   };
   testIsBridge = {
-    expr = builtins.map isBridge [
+    expr = map isBridge [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -104,7 +104,7 @@ with facterLib;
     ];
   };
   testIsCommunicationController = {
-    expr = builtins.map isCommunicationController [
+    expr = map isCommunicationController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -118,7 +118,7 @@ with facterLib;
     ];
   };
   testIsGenericSystemPeripheral = {
-    expr = builtins.map isGenericSystemPeripheral [
+    expr = map isGenericSystemPeripheral [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -132,7 +132,7 @@ with facterLib;
     ];
   };
   testIsInputDeviceController = {
-    expr = builtins.map isInputDeviceController [
+    expr = map isInputDeviceController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -146,7 +146,7 @@ with facterLib;
     ];
   };
   testIsDockingStation = {
-    expr = builtins.map isDockingStation [
+    expr = map isDockingStation [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -160,7 +160,7 @@ with facterLib;
     ];
   };
   testIsProcessor = {
-    expr = builtins.map isProcessor [
+    expr = map isProcessor [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -174,7 +174,7 @@ with facterLib;
     ];
   };
   testIsSerialBusController = {
-    expr = builtins.map isSerialBusController [
+    expr = map isSerialBusController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -188,7 +188,7 @@ with facterLib;
     ];
   };
   testIsWirelessController = {
-    expr = builtins.map isWirelessController [
+    expr = map isWirelessController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -202,7 +202,7 @@ with facterLib;
     ];
   };
   testIsIntelligentController = {
-    expr = builtins.map isIntelligentController [
+    expr = map isIntelligentController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -216,7 +216,7 @@ with facterLib;
     ];
   };
   testIsSatelliteCommunicationsController = {
-    expr = builtins.map isSatelliteCommunicationsController [
+    expr = map isSatelliteCommunicationsController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -230,7 +230,7 @@ with facterLib;
     ];
   };
   testIsEncryptionController = {
-    expr = builtins.map isEncryptionController [
+    expr = map isEncryptionController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -244,7 +244,7 @@ with facterLib;
     ];
   };
   testIsSignalProcessingController = {
-    expr = builtins.map isSignalProcessingController [
+    expr = map isSignalProcessingController [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -258,7 +258,7 @@ with facterLib;
     ];
   };
   testIsProcessingAccelerator = {
-    expr = builtins.map isProcessingAccelerator [
+    expr = map isProcessingAccelerator [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -272,7 +272,7 @@ with facterLib;
     ];
   };
   testIsNonEssentialInstrumentation = {
-    expr = builtins.map isNonEssentialInstrumentation [
+    expr = map isNonEssentialInstrumentation [
       { }
       { base_class = { }; }
       { base_class.value = 1; }
@@ -286,7 +286,7 @@ with facterLib;
     ];
   };
   testIsCoprocessor = {
-    expr = builtins.map isCoprocessor [
+    expr = map isCoprocessor [
       { }
       { base_class = { }; }
       { base_class.value = 1; }

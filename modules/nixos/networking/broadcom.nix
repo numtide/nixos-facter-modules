@@ -17,10 +17,13 @@ in
     };
   };
 
-  config.hardware = lib.mkIf cfg.full_mac.enable { enableRedistributableFirmware = true; };
+  config = {
+    hardware = lib.mkIf cfg.full_mac.enable { enableRedistributableFirmware = true; };
 
-  config.boot = lib.mkIf cfg.sta.enable {
-    kernelModules = [ "wl" ];
-    extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+    boot = lib.mkIf cfg.sta.enable {
+      kernelModules = [ "wl" ];
+      extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+    };
   };
+
 }
