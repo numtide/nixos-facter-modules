@@ -33,22 +33,21 @@ that part of the configuration yourself or take it from `nixos-generate-config`.
 ```nix
 # flake.nix
 {
-    inputs = {
-        nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-        nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-    };
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
+  };
 
-    outputs = inputs @ {
-        nixpkgs,
-        ...
-    }: {
-        nixosConfigurations.basic = nixpkgs.lib.nixosSystem {
-            modules = [
-                inputs.nixos-facter-modules.nixosModules.facter
-                { config.facter.reportPath = ./facter.json; }
-                # ...
-            ];
-        };
+  outputs =
+    inputs@{ nixpkgs, ... }:
+    {
+      nixosConfigurations.basic = nixpkgs.lib.nixosSystem {
+        modules = [
+          inputs.nixos-facter-modules.nixosModules.facter
+          { config.facter.reportPath = ./facter.json; }
+          # ...
+        ];
+      };
     };
 }
 ```
@@ -59,12 +58,12 @@ that part of the configuration yourself or take it from `nixos-generate-config`.
 ```nix
 # configuration.nix
 {
-    imports = [
-      "${(builtins.fetchTarball {
-        url = "https://github.com/numtide/nixos-facter-modules/";
-      })}/modules/nixos/facter.nix"
-    ];
+  imports = [
+    "${
+      (builtins.fetchTarball { url = "https://github.com/numtide/nixos-facter-modules/"; })
+    }/modules/nixos/facter.nix"
+  ];
 
-    config.facter.reportPath = ./facter.json;
+  config.facter.reportPath = ./facter.json;
 }
 ```
