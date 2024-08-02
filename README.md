@@ -1,7 +1,7 @@
 # nixos-facter-modules
 
 > [!NOTE]
-> **Status: vaporware**
+> **Status: alpha**
 
 A series of [NixOS modules] to be used in conjunction with [NixOS Facter].
 
