@@ -14,6 +14,7 @@ in
     ./networking
     ./virtualisation.nix
     ./firmware.nix
+    ./swap.nix
     ./system.nix
   ];
 
