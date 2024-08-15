@@ -2,12 +2,17 @@
   description = "NixOS Facter Modules";
 
   inputs = {
-    blueprint.follows = "nixos-facter/blueprint";
-    devshell.follows = "nixos-facter/devshell";
-    nixpkgs.follows = "nixos-facter/nixpkgs";
-    nixos-facter.url = "github:numtide/nixos-facter";
-    treefmt-nix.follows = "nixos-facter/treefmt-nix";
-    flake-compat.url = "github:nix-community/flake-compat";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    systems.url = "github:nix-systems/default";
+    blueprint = {
+      url = "github:numtide/blueprint";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+    };
+    treefmt-nix = {
+      url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
