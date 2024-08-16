@@ -1,8 +1,7 @@
 let
-  # load the flake we're in
-  flake = import ./.. { };
-
-  facterLib = import ./lib.nix flake.inputs.nixpkgs.lib;
+  # todo is there a way of tying this into the flake's nixpkgs input without need flake-compat?
+  nixpkgs = import <nixpkgs> {};
+  facterLib = import ./lib.nix nixpkgs.lib;
 
   usbController = {
     base_class = {
