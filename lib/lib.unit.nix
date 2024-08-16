@@ -1,7 +1,7 @@
+lib:
 let
-  # todo is there a way of tying this into the flake's nixpkgs input without need flake-compat?
-  nixpkgs = import <nixpkgs> {};
-  facterLib = import ./lib.nix nixpkgs.lib;
+
+  facterLib = import ./lib.nix lib;
 
   usbController = {
     base_class = {
