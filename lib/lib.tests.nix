@@ -1,8 +1,5 @@
-lib:
+facterLib:
 let
-
-  facterLib = import ./lib.nix lib;
-
   usbController = {
     base_class = {
       value = 12;
