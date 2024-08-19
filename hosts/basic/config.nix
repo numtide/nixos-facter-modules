@@ -1,6 +1,4 @@
-_: let
-
-in {
+_: {
   boot = {
     growPartition = true;
     kernelParams = [ "console=ttyS0" ];
@@ -33,7 +31,9 @@ in {
   virtualisation.vmVariant = {
     virtualisation = {
       graphics = false;
+      cores = 2;
       diskSize = 1024 * 10;
+      memorySize = 1024 * 2;
       sharedDirectories.facter = {
         source = "$DATA_DIR";
         target = "/mnt/shared";
