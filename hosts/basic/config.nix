@@ -32,7 +32,7 @@ _: {
     virtualisation = {
       graphics = false;
       sharedDirectories.facter = {
-        source = "$PRJ_DATA_DIR";
+        source = "$DATA_DIR";
         target = "/mnt/shared";
       };
     };
