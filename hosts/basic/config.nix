@@ -64,7 +64,7 @@
       diskSize = 1024 * 10;
       memorySize = 1024 * 2;
       sharedDirectories.facter = {
-        source = "$DATA_DIR";
+        source = "$PRJ_DATA_DIR";
         target = "/mnt/shared";
       };
     };

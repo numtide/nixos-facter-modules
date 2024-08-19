@@ -5,15 +5,23 @@
   ...
 }:
 let
-  facterLib = import ../../lib/lib.nix lib;
-
   inherit (config.facter) report;
   cfg = config.facter.virtualisation;
 in
 {
   options.facter.virtualisation = {
-    virtio.enable = lib.mkEnableOption "Enable the Facter Virtualisation Virtio module" // {
-      default = builtins.any (facterLib.devicesFilter facterLib.pci.devices.virtio_scsi) report.hardware;
+    virtio_scsi.enable = lib.mkEnableOption "Enable the Facter Virtualisation Virtio SCSI module" // {
+      default = lib.any (
+        { vendor, device, ... }:
+        # vendor (0x1af4) Red Hat, Inc.
+        (vendor.value or 0) == 6900
+        &&
+          # device (0x1004, 0x1048) Virtio SCSI
+          (lib.elem (device.value or 0) [
+            4100
+            4168
+          ])
+      ) (report.hardware.scsi or [ ]);
       defaultText = "hardware dependent";
     };
     oracle.enable = lib.mkEnableOption "Enable the Facter Virtualisation Oracle module" // {
@@ -52,10 +60,27 @@ in
   config = {
 
     # KVM support
-    boot.kernelModules = lib.flatten [
-      (lib.optionals (facterLib.supportsIntelKvm report) [ "kvm-intel" ])
-      (lib.optionals (facterLib.supportsAmdKvm report) [ "kvm-amd" ])
-    ];
+    boot.kernelModules =
+      with lib;
+      let
+        cpus = report.hardware.cpu or [ ];
+      in
+      unique (flatten [
+        (optionals (any (
+          {
+            features ? [ ],
+            ...
+          }:
+          elem "vmx" features
+        ) cpus) [ "kvm-intel" ])
+        (optionals (any (
+          {
+            features ? [ ],
+            ...
+          }:
+          elem "svm" features
+        ) cpus) [ "kvm-amd" ])
+      ]);
 
     # virtio & qemu
     boot.initrd = {
@@ -72,11 +97,10 @@ in
           "virtio_pci"
           "virtio_mmio"
           "virtio_blk"
-          "virtio_scsi"
           "9p"
           "9pnet_virtio"
         ])
-        ++ (lib.optionals cfg.virtio.enable [ "virtio_scsi" ]);
+        ++ (lib.optionals cfg.virtio_scsi.enable [ "virtio_scsi" ]);
     };
 
     virtualisation = {
