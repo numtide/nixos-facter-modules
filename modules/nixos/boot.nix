@@ -1,9 +1,9 @@
 { lib, config, ... }:
 let
   facterLib = import ../../lib/lib.nix lib;
+  report = facterLib.checkReportVersion { max = 1; } config.facter.report;
 
   cfg = config.facter.boot;
-  inherit (config.facter) report;
 in
 {
   options.facter.boot.enable = lib.mkEnableOption "Enable the Facter Boot module" // {

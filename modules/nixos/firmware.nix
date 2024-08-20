@@ -1,8 +1,8 @@
 { lib, config, ... }:
 let
   facterLib = import ../../lib/lib.nix lib;
+  report = facterLib.checkReportVersion { max = 1; } config.facter.report;
 
-  inherit (config.facter) report;
   isBaremetal = config.facter.virtualisation.none.enable;
   hasAmdCpu = facterLib.hasAmdCpu report;
   hasIntelCpu = facterLib.hasIntelCpu report;

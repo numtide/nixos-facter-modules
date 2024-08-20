@@ -6,8 +6,8 @@
 }:
 let
   facterLib = import ../../lib/lib.nix lib;
+  report = facterLib.checkReportVersion { max = 1; } config.facter.report;
 
-  inherit (config.facter) report;
   cfg = config.facter.virtualisation;
 in
 {

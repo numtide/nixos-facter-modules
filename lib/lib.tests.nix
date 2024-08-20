@@ -1,4 +1,4 @@
-facterLib:
+{ facterLib, ... }:
 let
   usbController = {
     base_class = {
@@ -15,6 +15,59 @@ let
 in
 with facterLib;
 {
+  reportVersion =
+    let
+      mkReport = version: {
+        inherit version;
+        virtualisation = "kvm";
+        hardware = [ ];
+        smbios = [ ];
+      };
+    in
+    {
+      testMin =
+        let
+          report = mkReport 4;
+        in
+        {
+          expr = checkReportVersion { min = 4; } report;
+          expected = report;
+        };
+      testMinFailure =
+        let
+          report = mkReport 4;
+        in
+        {
+          expr = checkReportVersion { min = 5; } report;
+          expectedError = {
+            type = "ThrownError";
+            msg = "nixos-facter report version 4 is unsupported: min = 5, max =";
+          };
+        };
+      testMax =
+        let
+          report = mkReport 25;
+        in
+        {
+          expr = checkReportVersion { max = 25; } report;
+          expected = report;
+        };
+      testMaxFailure =
+        let
+          report = mkReport 25;
+        in
+        {
+          expr = checkReportVersion {
+            min = 10;
+            max = 24;
+          } report;
+          expectedError = {
+            type = "ThrownError";
+            msg = "nixos-facter report version 25 is unsupported: min = 10, max = 24";
+          };
+        };
+    };
+
   testIsMassStorageController = {
     expr = map isMassStorageController [
       { }

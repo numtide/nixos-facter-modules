@@ -17,10 +17,23 @@ let
       device: device.hardware_class == "cpu" && device.detail.vendor_name == "GenuineIntel"
     ) hardware;
 
+  checkReportVersion =
+    {
+      min ? 1,
+      max ? null,
+    }:
+    report@{
+      version ? 1,
+      ...
+    }:
+    lib.throwIfNot (min <= version && (max == null || version <= max))
+      "nixos-facter report version ${toString version} is unsupported: min = ${toString min}, max = ${toString max}"
+      report;
+
 in
 {
   inherit isAllOf isOneOf canonicalSort;
-  inherit hasAmdCpu hasIntelCpu;
+  inherit hasAmdCpu hasIntelCpu checkReportVersion;
 
   isMassStorageController =
     {

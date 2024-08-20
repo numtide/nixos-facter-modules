@@ -1,5 +1,6 @@
 { inputs, ... }:
 let
-  facterLib = import ./lib.nix inputs.nixpkgs.lib;
+  inherit (inputs.nixpkgs) lib;
+  facterLib = import ./lib.nix lib;
 in
-facterLib // { tests = import ./lib.tests.nix facterLib; }
+facterLib // { tests = import ./lib.tests.nix { inherit lib facterLib; }; }
