@@ -1,5 +1,6 @@
 # nixos-facter-modules
 
+<!-- prettier-ignore -->
 > [!NOTE]
 > **Status: alpha**
 
