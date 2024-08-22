@@ -1,6 +1,5 @@
 { lib, config, ... }:
 let
-  facterLib = import ../../lib/lib.nix lib;
 
   cfg = config.facter.boot;
   inherit (config.facter) report;
@@ -10,29 +9,29 @@ in
     default = true;
   };
 
-  config = lib.mkIf cfg.enable {
-    boot.initrd.availableKernelModules = lib.filter (dm: dm != null) (
-      map
-        (
-          {
-            driver_module ? null,
-            ...
-          }:
-          driver_module
-        )
-        (
-          lib.filter (
-            with facterLib;
-            isOneOf [
+  config =
+    with lib;
+    mkIf cfg.enable {
+      boot.initrd.availableKernelModules = filter (dm: dm != null) (
+        map
+          (
+            {
+              driver_module ? null,
+              ...
+            }:
+            driver_module
+          )
+          (
+            unique (flatten [
               # Needed if we want to use the keyboard when things go wrong in the initrd.
-              isUsbController
+              (report.hardware.usb_controller or [ ])
               # A disk might be attached.
-              isFirewireController
+              (report.hardware.firewire_controller or [ ])
               # definitely important
-              isMassStorageController
-            ]
-          ) report.hardware
-        )
-    );
-  };
+              (report.hardware.disk or [ ])
+              (report.hardware.storage_controller or [ ])
+            ])
+          )
+      );
+    };
 }
