@@ -16,12 +16,9 @@ let
     assert assertMsg (cpus != [ ]) "no cpu entries found in the report";
     builtins.any (
       {
-        detail ? { },
+        vendor_name ? null,
         ...
       }:
-      let
-        vendor_name = detail.vendor_name or null;
-      in
       assert assertMsg (vendor_name != null) "detail.vendor_name not found in cpu entry";
       vendor_name == name
     ) cpus;

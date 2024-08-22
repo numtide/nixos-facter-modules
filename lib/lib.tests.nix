@@ -14,8 +14,8 @@ facterLib: with facterLib; {
     };
     testMatch = {
       expr = map (hasCpu "CoolProcessor") [
-        { hardware.cpu = [ { detail.vendor_name = "foo"; } ]; }
-        { hardware.cpu = [ { detail.vendor_name = "CoolProcessor"; } ]; }
+        { hardware.cpu = [ { vendor_name = "foo"; } ]; }
+        { hardware.cpu = [ { vendor_name = "CoolProcessor"; } ]; }
       ];
       expected = [
         false
@@ -26,8 +26,8 @@ facterLib: with facterLib; {
 
   testHasAmdCpu = {
     expr = map hasAmdCpu [
-      { hardware.cpu = [ { detail.vendor_name = "foo"; } ]; }
-      { hardware.cpu = [ { detail.vendor_name = "AuthenticAMD"; } ]; }
+      { hardware.cpu = [ { vendor_name = "foo"; } ]; }
+      { hardware.cpu = [ { vendor_name = "AuthenticAMD"; } ]; }
     ];
     expected = [
       false
@@ -37,8 +37,8 @@ facterLib: with facterLib; {
 
   testHasIntelCpu = {
     expr = map hasIntelCpu [
-      { hardware.cpu = [ { detail.vendor_name = "foo"; } ]; }
-      { hardware.cpu = [ { detail.vendor_name = "GenuineIntel"; } ]; }
+      { hardware.cpu = [ { vendor_name = "foo"; } ]; }
+      { hardware.cpu = [ { vendor_name = "GenuineIntel"; } ]; }
     ];
     expected = [
       false
