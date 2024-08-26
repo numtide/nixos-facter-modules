@@ -10,7 +10,6 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
     nixfmt.package = pkgs.nixfmt-rfc-style;
 
     deadnix.enable = true;
-    gofumpt.enable = true;
     prettier.enable = true;
     statix.enable = true;
   };
