@@ -37,7 +37,6 @@ that part of the configuration yourself or take it from `nixos-generate-config`.
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-    nixos-facter-modules.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
