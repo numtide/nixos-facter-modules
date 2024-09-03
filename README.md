@@ -37,7 +37,6 @@ that part of the configuration yourself or take it from `nixos-generate-config`.
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
-    nixos-facter-modules.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -57,6 +56,8 @@ that part of the configuration yourself or take it from `nixos-generate-config`.
           #   fileSystems."/".device = lib.mkDefault "/dev/sda";
           # }
           # ...
+          ## You also need to define your bootloader if you are not using grub
+          #{ boot.loader.systemd-boot.enable = true; }
         ];
       };
     };

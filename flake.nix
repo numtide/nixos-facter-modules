@@ -1,23 +1,13 @@
 {
   description = "NixOS Facter Modules";
 
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-  };
-
   outputs =
-    publicInputs@{
-      self,
-      nixpkgs,
-      ...
-    }:
+    publicInputs:
     let
-      inherit (publicInputs.nixpkgs) lib;
-
       loadPrivateFlake =
         path:
         let
-          flakeHash = nixpkgs.lib.fileContents "${toString path}.narHash";
+          flakeHash = builtins.readFile "${toString path}.narHash";
           flakePath = "path:${toString path}?narHash=${flakeHash}";
         in
         builtins.getFlake (builtins.unsafeDiscardStringContext flakePath);
@@ -25,8 +15,6 @@
       privateFlake = loadPrivateFlake ./dev/private;
 
       privateInputs = privateFlake.inputs;
-
-      inputs = publicInputs;
 
       systems = [
         "aarch64-linux"
@@ -39,20 +27,20 @@
           builtins.map (system: {
             name = system;
             value = f {
-              pkgs = import nixpkgs { inherit system; };
+              pkgs = import privateInputs.nixpkgs { inherit system; };
               inherit system;
             };
           }) systems
         );
     in
     {
-      lib = import ./lib { inherit inputs; };
+      lib = import ./lib { lib = privateInputs.nixpkgs.lib; };
 
       nixosConfigurations = {
         basic =
           (import ./hosts/basic {
-            inherit inputs;
-            flake = inputs.self;
+            inputs = privateInputs;
+            flake = publicInputs.self;
           }).value;
       };
       nixosModules = {
@@ -73,7 +61,9 @@
             default = pkgs.callPackage ./devshell.nix { };
           }
         );
-        formatter = eachSystem ({ pkgs, ... }: pkgs.callPackage ./formatter.nix { inputs = inputs // privateInputs; });
+        formatter = eachSystem (
+          { pkgs, ... }: pkgs.callPackage ./formatter.nix { inputs = publicInputs // privateInputs; }
+        );
 
         checks = eachSystem (
           { pkgs, ... }:
@@ -85,11 +75,7 @@
               flake-registry = ""
               '
 
-              nix-unit --flake ${inputs.self}#lib.tests ${
-                toString (
-                  lib.mapAttrsToList (k: v: "--override-input ${k} ${v}") (builtins.removeAttrs inputs [ "self" ])
-                )
-              }
+              nix-unit --expr '(import ${publicInputs.self}/lib { lib = import ${privateInputs.nixpkgs}/lib; }).tests'
 
               touch $out
             '';
