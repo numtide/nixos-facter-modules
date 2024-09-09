@@ -44,12 +44,6 @@ in
       default = report.virtualisation == "microsoft";
       defaultText = "environment dependent";
     };
-    systemd_nspawn.enable =
-      lib.mkEnableOption "Enable the Facter Virtualisation Systemd NSpawn module"
-      // {
-        default = report.virtualisation == "systemd-nspawn";
-        defaultText = "environment dependent";
-      };
     # no virtualisation detected
     none.enable = lib.mkEnableOption "Enable the Facter Virtualisation None module" // {
       default = report.virtualisation == "none";
@@ -117,8 +111,5 @@ in
         pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ]
       );
     };
-
-    # systemd-nspawn
-    boot.isContainer = cfg.systemd_nspawn.enable;
   };
 }
