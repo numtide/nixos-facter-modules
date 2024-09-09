@@ -15,6 +15,7 @@ in
     ./virtualisation.nix
     ./firmware.nix
     ./system.nix
+    ./bluetooth.nix
   ];
 
   options.facter = with lib; {
