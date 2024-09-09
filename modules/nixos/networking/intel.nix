@@ -42,8 +42,8 @@ in
   };
 
   config = {
-    networking = lib.mkIf cfg._2200BG.enable { enableIntel2200BGFirmware = true; };
-    hardware = lib.mkIf cfg._3945ABG.enable { enableRedistributableFirmware = true; };
+    networking.enableIntel2200BGFirmware = lib.mkIf cfg._2200BG.enable (lib.mkDefault true);
+    hardware.enableRedistributableFirmware = lib.mkIf cfg._3945ABG.enable (lib.mkDefault true);
   };
 
 }

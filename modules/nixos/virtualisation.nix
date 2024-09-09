@@ -55,26 +55,14 @@ in
 
     # KVM support
     boot.kernelModules =
-      with lib;
       let
-        cpus = report.hardware.cpu or [ ];
+        hasCPUFeature =
+          feature: lib.any ({ features, ... }: lib.elem feature features) (report.hardware.cpu or [ ]);
       in
-      unique (flatten [
-        (optionals (any (
-          {
-            features ? [ ],
-            ...
-          }:
-          elem "vmx" features
-        ) cpus) [ "kvm-intel" ])
-        (optionals (any (
-          {
-            features ? [ ],
-            ...
-          }:
-          elem "svm" features
-        ) cpus) [ "kvm-amd" ])
-      ]);
+      lib.mkMerge [
+        (lib.mkIf (hasCPUFeature "vmx") [ "kvm-intel" ])
+        (lib.mkIf (hasCPUFeature "svm") [ "kvm-amd" ])
+      ];
 
     # virtio & qemu
     boot.initrd = {
@@ -85,8 +73,8 @@ in
         "virtio_gpu"
       ];
 
-      availableKernelModules =
-        (lib.optionals cfg.qemu.enable [
+      availableKernelModules = lib.mkMerge [
+        (lib.mkIf cfg.qemu.enable [
           "virtio_net"
           "virtio_pci"
           "virtio_mmio"
@@ -94,18 +82,21 @@ in
           "9p"
           "9pnet_virtio"
         ])
-        ++ (lib.optionals cfg.virtio_scsi.enable [ "virtio_scsi" ]);
+        (lib.mkIf cfg.virtio_scsi.enable [
+          "virtio_scsi"
+        ])
+      ];
     };
 
     virtualisation = {
       # oracle
-      virtualbox.guest.enable = cfg.oracle.enable;
+      virtualbox.guest.enable = lib.mkIf (cfg.oracle.enable) (lib.mkDefault true);
       # hyper-v
-      hypervGuest.enable = cfg.hyperv.enable;
+      hypervGuest.enable = lib.mkIf cfg.hyperv.enable (lib.mkDefault true);
     };
 
     # parallels
-    hardware.parallels.enable = cfg.parallels.enable;
+    hardware.parallels.enable = lib.mkIf cfg.parallels.enable (lib.mkDefault true);
     nixpkgs.config = lib.mkIf (!options.nixpkgs.pkgs.isDefined) {
       allowUnfreePredicate = lib.mkIf cfg.parallels.enable (
         pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ]
