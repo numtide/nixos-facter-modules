@@ -66,7 +66,7 @@ in
   };
 
   config = {
-    hardware = lib.mkIf cfg.full_mac.enable { enableRedistributableFirmware = true; };
+    hardware.enableRedistributableFirmware = lib.mkIf cfg.full_mac.enable (lib.mkDefault true);
 
     boot = lib.mkIf cfg.sta.enable {
       kernelModules = [ "wl" ];
