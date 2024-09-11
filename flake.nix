@@ -34,7 +34,7 @@
         );
     in
     {
-      lib = import ./lib { lib = privateInputs.nixpkgs.lib; };
+      lib = import ./lib { inherit (privateInputs.nixpkgs) lib; };
 
       nixosConfigurations = {
         basic =

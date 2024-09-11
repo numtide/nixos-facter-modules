@@ -90,7 +90,7 @@ in
 
     virtualisation = {
       # oracle
-      virtualbox.guest.enable = lib.mkIf (cfg.oracle.enable) (lib.mkDefault true);
+      virtualbox.guest.enable = lib.mkIf cfg.oracle.enable (lib.mkDefault true);
       # hyper-v
       hypervGuest.enable = lib.mkIf cfg.hyperv.enable (lib.mkDefault true);
     };
