@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 pkgs.mkShellNoCC {
   packages = [
     pkgs.nix-unit

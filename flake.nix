@@ -58,7 +58,8 @@
         devShells = eachSystem (
           { pkgs, ... }:
           {
-            default = pkgs.callPackage ./devshell.nix { };
+            default = pkgs.callPackage ./devshell.nix { inputs = publicInputs // privateInputs; };
+            docs = pkgs.callPackage ./docs.nix { };
           }
         );
         formatter = eachSystem (
