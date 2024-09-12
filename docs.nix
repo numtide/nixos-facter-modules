@@ -7,7 +7,12 @@ pkgs.mkShellNoCC {
     let
       inherit (pkgs) lib;
 
-      # Eval NixOS modules
+      # Capture root so we can identify our store paths below
+      root = toString ./.;
+
+      snakeCase = with lib; replaceStrings upperChars (map (s: "_" + s) lowerChars);
+
+      # Eval Facter module
       eval = lib.evalModules {
         modules = [
           # Load the root module
@@ -20,11 +25,6 @@ pkgs.mkShellNoCC {
           }
         ];
       };
-
-      snakeCase = with lib; replaceStrings upperChars (map (s: "_" + s) lowerChars);
-
-      # Capture root so we can identify our store paths below
-      root = toString ./.;
 
       # Convert `/nix/store/...` store paths in the option declarations into a repository link.
       # NOTE: we point at the main branch, but for versioned docs this will be incorrect.
@@ -41,35 +41,62 @@ pkgs.mkShellNoCC {
           name = subpath;
         };
 
-      # For each key in `options.facter` we generate it's own separate markdown file and then symlink join them together
-      # into a common directory.
-      optionsDoc = pkgs.symlinkJoin {
-        name = "facter-module-docs";
-        paths = lib.mapAttrsToList (
-          name: value:
-          let
-            optionsDoc = pkgs.nixosOptionsDoc {
-              options = value;
-              transformOptions =
-                opt:
-                opt
-                // {
-                  declarations = map transformDeclaration opt.declarations;
-                };
+      # Convert options into options doc, transforming declaration paths to point to the github repository.
+      nixosOptionsDoc =
+        _name: options:
+        pkgs.nixosOptionsDoc {
+          inherit options;
+          transformOptions =
+            opt:
+            opt
+            // {
+              declarations = map transformDeclaration opt.declarations;
             };
-          in
-          pkgs.runCommand "${name}-doc" { } ''
-            mkdir $out
-            cat ${optionsDoc.optionsCommonMark} > $out/${snakeCase name}.md
-          ''
-        ) eval.options.facter;
+        };
+
+      # Take an options attr set and produce a markdown file.
+      mkMarkdown =
+        name: options:
+        let
+          optionsDoc = nixosOptionsDoc name options;
+        in
+        pkgs.runCommand "${name}-markdown" { } ''
+          mkdir $out
+          cat ${optionsDoc.optionsCommonMark} > $out/${snakeCase name}.md
+        '';
+
+      # Allows us to gather all options that are immediate children of `facter` and which have no child options.
+      # e.g. facter.reportPath, facter.report.
+      # For all other options we group them by the first immediate child of `facter`.
+      # e.g. facter.bluetooth, facter.boot and so on.
+      # This allows us to have a page for root facter options "facter.md", and a page each for the major sub modules.
+      facterOptionsFilter =
+        _:
+        {
+          loc ? [ ],
+          options ? [ ],
+          ...
+        }:
+        (lib.length loc) == 2 && ((lib.elemAt loc 0) == "facter") && (lib.length options) == 0;
+
+      otherOptionsFilter = n: v: !(facterOptionsFilter n v);
+
+      facterMarkdown = mkMarkdown "facter" (lib.filterAttrs facterOptionsFilter eval.options.facter);
+      otherMarkdown = lib.mapAttrsToList mkMarkdown (
+        lib.filterAttrs otherOptionsFilter eval.options.facter
+      );
+
+      optionsMarkdown = pkgs.symlinkJoin {
+        name = "facter-module-markdown";
+        paths = [ facterMarkdown ] ++ otherMarkdown;
       };
+
     in
     with pkgs;
     [
       (pkgs.writeScriptBin "mkdocs" ''
         # rsync in NixOS modules doc to avoid issues with symlinks being owned by root
-        rsync -aL --chmod=u+rw --delete-before ${optionsDoc}/ ./docs/content/reference/nixos_modules
+        rsync -aL --chmod=u+rw --delete-before ${optionsMarkdown}/ ./docs/content/reference/nixos_modules
 
         # execute the underlying command
         ${pkgs.mkdocs}/bin/mkdocs "$@"
