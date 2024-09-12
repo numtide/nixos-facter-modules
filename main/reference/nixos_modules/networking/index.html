@@ -10,28 +10,28 @@
       
       
       
-        <link rel="canonical" href="https://numtide.github.io/nixos-facter-modules/main/getting-started/generate-report/">
+        <link rel="canonical" href="https://numtide.github.io/nixos-facter-modules/main/reference/nixos_modules/networking/">
       
       
-        <link rel="prev" href="../../contributing/docs/">
+        <link rel="prev" href="../facter/">
       
       
-        <link rel="next" href="../nixos-configuration/">
+        <link rel="next" href="../virtualisation/">
       
       
-      <link rel="icon" href="../../assets/images/logo.png">
+      <link rel="icon" href="../../../assets/images/logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.33">
     
     
       
-        <title>Generate a report - NixOS Facter Modules</title>
+        <title>Networking - NixOS Facter Modules</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -50,9 +50,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#generate-a-report" class="md-skip">
+        <a href="#facternetworkingbroadcomfull_macenable" class="md-skip">
           Skip to content
         </a>
       
@@ -96,9 +96,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="NixOS Facter Modules" class="md-header__button md-logo" aria-label="NixOS Facter Modules" data-md-component="logo">
+    <a href="../../.." title="NixOS Facter Modules" class="md-header__button md-logo" aria-label="NixOS Facter Modules" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -115,7 +115,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Generate a report
+              Networking
             
           </span>
         </div>
@@ -239,7 +239,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -258,7 +258,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../contributing/code/" class="md-tabs__link">
+        <a href="../../../contributing/code/" class="md-tabs__link">
           
   
     
@@ -274,13 +274,11 @@
         
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../../getting-started/generate-report/" class="md-tabs__link">
           
   
     
@@ -296,17 +294,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../reference/nixos_modules/bluetooth/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../bluetooth/" class="md-tabs__link">
           
   
     
@@ -344,9 +346,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="NixOS Facter Modules" class="md-nav__button md-logo" aria-label="NixOS Facter Modules" data-md-component="logo">
+    <a href="../../.." title="NixOS Facter Modules" class="md-nav__button md-logo" aria-label="NixOS Facter Modules" data-md-component="logo">
       
-  <img src="../../assets/images/logo.png" alt="logo">
+  <img src="../../../assets/images/logo.png" alt="logo">
 
     </a>
     NixOS Facter Modules
@@ -373,7 +375,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -439,7 +441,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/code/" class="md-nav__link">
+      <a href="../../../contributing/code/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -460,7 +462,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/docs/" class="md-nav__link">
+      <a href="../../../contributing/docs/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -485,10 +487,8 @@
       
   
   
-    
   
   
-  
     
     
       
@@ -499,22 +499,19 @@
     
     
       
-        
-        
-      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
             
   
   <span class="md-ellipsis">
@@ -525,7 +522,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Getting started
@@ -536,19 +533,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../getting-started/generate-report/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -557,7 +545,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -570,7 +557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nixos-configuration/" class="md-nav__link">
+      <a href="../../../getting-started/nixos-configuration/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -595,8 +582,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -605,19 +594,22 @@
     
     
       
+        
+        
+      
       
         
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -628,7 +620,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Reference
@@ -639,8 +631,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -660,18 +654,21 @@
     
       
       
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
         
           
-          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -682,7 +679,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_1">
             <span class="md-nav__icon md-icon"></span>
             Nixos modules
@@ -696,7 +693,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/nixos_modules/bluetooth/" class="md-nav__link">
+      <a href="../bluetooth/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -717,7 +714,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/nixos_modules/boot/" class="md-nav__link">
+      <a href="../boot/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -738,7 +735,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/nixos_modules/debug/" class="md-nav__link">
+      <a href="../debug/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -759,7 +756,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/nixos_modules/facter/" class="md-nav__link">
+      <a href="../facter/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -777,10 +774,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../reference/nixos_modules/networking/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Networking
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -789,6 +804,60 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#facternetworkingbroadcomfull_macenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      facter.networking.broadcom.full_mac.enable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facternetworkingbroadcomstaenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      facter.networking.broadcom.sta.enable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facternetworkingintel_2200bgenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      facter.networking.intel._2200BG.enable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facternetworkingintel_3945abgenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      facter.networking.intel._3945ABG.enable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -801,7 +870,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/nixos_modules/virtualisation/" class="md-nav__link">
+      <a href="../virtualisation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -847,8 +916,50 @@
   
   
   
-    
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#facternetworkingbroadcomfull_macenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      facter.networking.broadcom.full_mac.enable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facternetworkingbroadcomstaenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      facter.networking.broadcom.sta.enable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facternetworkingintel_2200bgenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      facter.networking.intel._2200BG.enable
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#facternetworkingintel_3945abgenable" class="md-nav__link">
+    <span class="md-ellipsis">
+      facter.networking.intel._3945ABG.enable
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -866,119 +977,48 @@
   
 
 
-<h1 id="generate-a-report">Generate a report</h1>
-<p>To generate a report, you will need to have <a href="https://nixos.org">Nix</a> installed on the target machine.</p>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
-<span class="normal"><a href="#__codelineno-0-2">2</a></span>
-<span class="normal"><a href="#__codelineno-0-3">3</a></span>
-<span class="normal"><a href="#__codelineno-0-4">4</a></span>
-<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>sudo<span class="w"> </span>nix<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span>--option<span class="w"> </span>experimental-features<span class="w"> </span><span class="s2">&quot;nix-command flakes&quot;</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span>--option<span class="w"> </span>extra-substituters<span class="w"> </span>https://numtide.cachix.org<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">  </span>--option<span class="w"> </span>extra-trusted-public-keys<span class="w"> </span>numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE<span class="o">=</span><span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">  </span>github:numtide/nixos-facter<span class="w"> </span>--<span class="w"> </span>-o<span class="w"> </span>facter.json
-</code></pre></div></td></tr></table></div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>In the near-future we will add <a href="https://github.com/numtide/nixos-facter">nixos-facter</a> to <a href="https://github.com/nixos/nixpkgs">nixpkgs</a>. Until then, we recommend using the <a href="https://numtide.cachix.org">Numtide Binary Cache</a>
-to avoid having to build everything from scratch.</p>
-</div>
-<p>This will scan your system and produce a JSON-based report in a file named <code>facter.json</code>:</p>
-<div class="highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">facter.json</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
-<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
-<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
-<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
-<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
-<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
-<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
-<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
-<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
-<span class="normal"><a href="#__codelineno-1-10">10</a></span>
-<span class="normal"><a href="#__codelineno-1-11">11</a></span>
-<span class="normal"><a href="#__codelineno-1-12">12</a></span>
-<span class="normal"><a href="#__codelineno-1-13">13</a></span>
-<span class="normal"><a href="#__codelineno-1-14">14</a></span>
-<span class="normal"><a href="#__codelineno-1-15">15</a></span>
-<span class="normal"><a href="#__codelineno-1-16">16</a></span>
-<span class="normal"><a href="#__codelineno-1-17">17</a></span>
-<span class="normal"><a href="#__codelineno-1-18">18</a></span>
-<span class="normal"><a href="#__codelineno-1-19">19</a></span>
-<span class="normal"><a href="#__codelineno-1-20">20</a></span>
-<span class="normal"><a href="#__codelineno-1-21">21</a></span>
-<span class="normal"><a href="#__codelineno-1-22">22</a></span>
-<span class="normal"><a href="#__codelineno-1-23">23</a></span>
-<span class="normal"><a href="#__codelineno-1-24">24</a></span>
-<span class="normal"><a href="#__codelineno-1-25">25</a></span>
-<span class="normal"><a href="#__codelineno-1-26">26</a></span>
-<span class="normal"><a href="#__codelineno-1-27">27</a></span>
-<span class="normal"><a href="#__codelineno-1-28">28</a></span>
-<span class="normal"><a href="#__codelineno-1-29">29</a></span>
-<span class="normal"><a href="#__codelineno-1-30">30</a></span>
-<span class="normal"><a href="#__codelineno-1-31">31</a></span>
-<span class="normal"><a href="#__codelineno-1-32">32</a></span>
-<span class="normal"><a href="#__codelineno-1-33">33</a></span>
-<span class="normal"><a href="#__codelineno-1-34">34</a></span>
-<span class="normal"><a href="#__codelineno-1-35">35</a></span>
-<span class="normal"><a href="#__codelineno-1-36">36</a></span>
-<span class="normal"><a href="#__codelineno-1-37">37</a></span>
-<span class="normal"><a href="#__codelineno-1-38">38</a></span>
-<span class="normal"><a href="#__codelineno-1-39">39</a></span>
-<span class="normal"><a href="#__codelineno-1-40">40</a></span>
-<span class="normal"><a href="#__codelineno-1-41">41</a></span>
-<span class="normal"><a href="#__codelineno-1-42">42</a></span>
-<span class="normal"><a href="#__codelineno-1-43">43</a></span>
-<span class="normal"><a href="#__codelineno-1-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">{</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">// (1)!</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x86_64-linux&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// (2)!</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="nt">&quot;virtualisation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// (3)!</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">  </span><span class="nt">&quot;hardware&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (4)!</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nt">&quot;bios&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">    </span><span class="nt">&quot;bluetooth&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">    </span><span class="nt">&quot;bridge&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nt">&quot;chip_card&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">,</span>
-<a id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="nt">&quot;cpu&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="nt">&quot;disk&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="nt">&quot;graphics_card&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="nt">&quot;hub&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="nt">&quot;keyboard&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="nt">&quot;memory&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">    </span><span class="nt">&quot;monitor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="nt">&quot;mouse&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">    </span><span class="nt">&quot;network_controller&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="nt">&quot;network_interface&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="nt">&quot;sound&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="w">    </span><span class="nt">&quot;storage_controller&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="w">    </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-23" name="__codelineno-1-23"></a><span class="w">    </span><span class="nt">&quot;unknown&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="w">    </span><span class="nt">&quot;usb_controller&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">]</span>
-<a id="__codelineno-1-25" name="__codelineno-1-25"></a><span class="w">  </span><span class="p">},</span>
-<a id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="w">  </span><span class="nt">&quot;smbios&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="c1">// (5)!</span>
-<a id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="w">    </span><span class="nt">&quot;bios&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-1-28" name="__codelineno-1-28"></a><span class="w">    </span><span class="nt">&quot;board&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-1-29" name="__codelineno-1-29"></a><span class="w">    </span><span class="nt">&quot;cache&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-30" name="__codelineno-1-30"></a><span class="w">    </span><span class="nt">&quot;chassis&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-1-31" name="__codelineno-1-31"></a><span class="w">    </span><span class="nt">&quot;config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-1-32" name="__codelineno-1-32"></a><span class="w">    </span><span class="nt">&quot;language&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">},</span>
-<a id="__codelineno-1-33" name="__codelineno-1-33"></a><span class="w">    </span><span class="nt">&quot;memory_array&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-34" name="__codelineno-1-34"></a><span class="w">    </span><span class="nt">&quot;memory_array_mapped_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-35" name="__codelineno-1-35"></a><span class="w">    </span><span class="nt">&quot;memory_device&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-36" name="__codelineno-1-36"></a><span class="w">    </span><span class="nt">&quot;memory_device_mapped_address&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-37" name="__codelineno-1-37"></a><span class="w">    </span><span class="nt">&quot;memory_error&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-38" name="__codelineno-1-38"></a><span class="w">    </span><span class="nt">&quot;onboard&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-39" name="__codelineno-1-39"></a><span class="w">    </span><span class="nt">&quot;port_connector&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="w">    </span><span class="nt">&quot;processor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="w">    </span><span class="nt">&quot;slot&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">],</span>
-<a id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="w">    </span><span class="nt">&quot;system&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span>
-<a id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-1-44" name="__codelineno-1-44"></a><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-<ol>
-<li>Used to track major breaking changes in the report format.</li>
-<li>Architecture of the target machine.</li>
-<li>Indicates whether the report was generated inside a virtualised environment, and if so, what type.</li>
-<li>All the various bits of hardware that could be detected.</li>
-<li><a href="https://wiki.osdev.org/System_Management_BIOS">System Management BIOS</a> information if available.</li>
-</ol>
+  <h1>Networking</h1>
+
+<h2 id="facternetworkingbroadcomfull_macenable">facter.networking.broadcom.full_mac.enable</h2>
+<p>Whether to enable Enable the Facter Broadcom Full MAC module.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<code>"hardware dependent"</code></p>
+<p><em>Example:</em>
+<code>true</code></p>
+<p><em>Declared by:</em>
+ - <a href="https://github.com/numtide/nixos-facter-modules/blob/main/modules/nixos/networking/broadcom.nix">modules/nixos/networking/broadcom.nix</a></p>
+<h2 id="facternetworkingbroadcomstaenable">facter.networking.broadcom.sta.enable</h2>
+<p>Whether to enable Enable the Facter Broadcom STA module.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<code>"hardware dependent"</code></p>
+<p><em>Example:</em>
+<code>true</code></p>
+<p><em>Declared by:</em>
+ - <a href="https://github.com/numtide/nixos-facter-modules/blob/main/modules/nixos/networking/broadcom.nix">modules/nixos/networking/broadcom.nix</a></p>
+<h2 id="facternetworkingintel_2200bgenable">facter.networking.intel._2200BG.enable</h2>
+<p>Whether to enable Enable the Facter Intel 2200BG module.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<code>"hardware dependent"</code></p>
+<p><em>Example:</em>
+<code>true</code></p>
+<p><em>Declared by:</em>
+ - <a href="https://github.com/numtide/nixos-facter-modules/blob/main/modules/nixos/networking/intel.nix">modules/nixos/networking/intel.nix</a></p>
+<h2 id="facternetworkingintel_3945abgenable">facter.networking.intel._3945ABG.enable</h2>
+<p>Whether to enable Enable the Facter Intel 3945ABG module.</p>
+<p><em>Type:</em>
+boolean</p>
+<p><em>Default:</em>
+<code>"hardware dependent"</code></p>
+<p><em>Example:</em>
+<code>true</code></p>
+<p><em>Declared by:</em>
+ - <a href="https://github.com/numtide/nixos-facter-modules/blob/main/modules/nixos/networking/intel.nix">modules/nixos/networking/intel.nix</a></p>
 
 
 
@@ -1008,7 +1048,7 @@ to avoid having to build everything from scratch.</p>
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../../contributing/docs/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Documentation">
+          <a href="../facter/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Facter">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
@@ -1018,20 +1058,20 @@ to avoid having to build everything from scratch.</p>
                 Previous
               </span>
               <div class="md-ellipsis">
-                Documentation
+                Facter
               </div>
             </div>
           </a>
         
         
           
-          <a href="../nixos-configuration/" class="md-footer__link md-footer__link--next" aria-label="Next: NixOS Configuration">
+          <a href="../virtualisation/" class="md-footer__link md-footer__link--next" aria-label="Next: Virtualisation">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                NixOS Configuration
+                Virtualisation
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1108,10 +1148,10 @@ to avoid having to build everything from scratch.</p>
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "content.code.copy", "navigation.footer", "navigation.indexes", "navigation.path", "navigation.sections", "navigation.tabs", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.af256bd8.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.af256bd8.min.js"></script>
       
     
   </body>
