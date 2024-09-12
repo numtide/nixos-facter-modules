@@ -59,7 +59,7 @@
           { pkgs, ... }:
           {
             default = pkgs.callPackage ./devshell.nix { inputs = publicInputs // privateInputs; };
-            docs = pkgs.callPackage ./docs.nix { };
+            docs = pkgs.callPackage ./docs.nix { inputs = publicInputs // privateInputs; };
           }
         );
         formatter = eachSystem (
