@@ -25,4 +25,34 @@
          <lastmod>1980-01-01</lastmod>
          <changefreq>daily</changefreq>
     </url>
+    <url>
+         <loc>https://numtide.github.io/nixos-facter-modules/main/reference/nixos_modules/bluetooth/</loc>
+         <lastmod>1980-01-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://numtide.github.io/nixos-facter-modules/main/reference/nixos_modules/boot/</loc>
+         <lastmod>1980-01-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://numtide.github.io/nixos-facter-modules/main/reference/nixos_modules/debug/</loc>
+         <lastmod>1980-01-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://numtide.github.io/nixos-facter-modules/main/reference/nixos_modules/facter/</loc>
+         <lastmod>1980-01-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://numtide.github.io/nixos-facter-modules/main/reference/nixos_modules/networking/</loc>
+         <lastmod>1980-01-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://numtide.github.io/nixos-facter-modules/main/reference/nixos_modules/virtualisation/</loc>
+         <lastmod>1980-01-01</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>
