@@ -34,7 +34,7 @@
         );
     in
     {
-      lib = import ./lib { lib = privateInputs.nixpkgs.lib; };
+      lib = import ./lib { inherit (privateInputs.nixpkgs) lib; };
 
       nixosConfigurations = {
         basic =
@@ -58,7 +58,8 @@
         devShells = eachSystem (
           { pkgs, ... }:
           {
-            default = pkgs.callPackage ./devshell.nix { };
+            default = pkgs.callPackage ./devshell.nix { inputs = publicInputs // privateInputs; };
+            docs = pkgs.callPackage ./docs.nix { inputs = publicInputs // privateInputs; };
           }
         );
         formatter = eachSystem (

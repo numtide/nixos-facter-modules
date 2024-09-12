@@ -24,41 +24,35 @@
     "bridge": [
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 1,
         "base_class": {
-          "value": 6,
-          "name": "Bridge"
+          "name": "Bridge",
+          "value": 6
         },
         "sub_class": {
-          "value": 1,
-          "name": "ISA bridge"
+          "name": "ISA bridge",
+          "value": 1
         },
         "vendor": {
-          "type": "pci",
-          "value": 32902,
-          "name": "Intel Corporation"
+          "name": "Intel Corporation",
+          "value": 32902
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 28672,
-          "name": "82371SB PIIX3 ISA [Natoma/Triton II]"
+          "value": 28672
         },
         "sub_device": {
-          "type": "pci",
-          "value": 4352,
-          "name": "Qemu virtual machine"
+          "value": 4352
         },
-        "model": "Red Hat Qemu virtual machine",
+        "model": "Intel ISA bridge",
         "sysfs_id": "/devices/pci0000:00/0000:00:01.0",
         "sysfs_bus_id": "0000:00:01.0",
+        "sysfs_iommu_group_id": 0,
         "detail": {
           "function": 0,
           "command": 259,
@@ -74,44 +68,38 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 0,
         "base_class": {
-          "value": 6,
-          "name": "Bridge"
+          "name": "Bridge",
+          "value": 6
         },
         "sub_class": {
-          "value": 0,
-          "name": "Host bridge"
+          "name": "Host bridge",
+          "value": 0
         },
         "vendor": {
-          "type": "pci",
-          "value": 32902,
-          "name": "Intel Corporation"
+          "name": "Intel Corporation",
+          "value": 32902
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4663,
-          "name": "440FX - 82441FX PMC [Natoma]"
+          "value": 4663
         },
         "sub_device": {
-          "type": "pci",
-          "value": 4352,
-          "name": "Qemu virtual machine"
+          "value": 4352
         },
         "revision": {
           "value": 2
         },
-        "model": "Red Hat Qemu virtual machine",
+        "model": "Intel Host bridge",
         "sysfs_id": "/devices/pci0000:00/0000:00:00.0",
         "sysfs_bus_id": "0000:00:00.0",
+        "sysfs_iommu_group_id": 0,
         "detail": {
           "function": 0,
           "command": 259,
@@ -127,44 +115,38 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 1,
         "base_class": {
-          "value": 6,
-          "name": "Bridge"
+          "name": "Bridge",
+          "value": 6
         },
         "sub_class": {
-          "value": 128,
-          "name": "Bridge"
+          "name": "Bridge",
+          "value": 128
         },
         "vendor": {
-          "type": "pci",
-          "value": 32902,
-          "name": "Intel Corporation"
+          "name": "Intel Corporation",
+          "value": 32902
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 28947,
-          "name": "82371AB/EB/MB PIIX4 ACPI"
+          "value": 28947
         },
         "sub_device": {
-          "type": "pci",
-          "value": 4352,
-          "name": "Qemu virtual machine"
+          "value": 4352
         },
         "revision": {
           "value": 3
         },
-        "model": "Red Hat Qemu virtual machine",
+        "model": "Intel Bridge",
         "sysfs_id": "/devices/pci0000:00/0000:00:01.3",
         "sysfs_bus_id": "0000:00:01.3",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "irq",
@@ -198,43 +180,59 @@
     "cdrom": [
       {
         "bus_type": {
-          "value": 132,
-          "name": "SCSI"
+          "name": "SCSI",
+          "value": 132
         },
         "slot": 256,
         "base_class": {
-          "value": 262,
-          "name": "Mass Storage Device"
+          "name": "Mass Storage Device",
+          "value": 262
         },
         "sub_class": {
-          "value": 2,
-          "name": "CD-ROM"
+          "name": "CD-ROM",
+          "value": 2
         },
         "pci_interface": {
-          "value": 3,
-          "name": "DVD"
+          "name": "DVD",
+          "value": 3
         },
         "vendor": {
-          "value": 0,
-          "name": "QEMU"
+          "name": "QEMU",
+          "value": 0
         },
         "device": {
-          "value": 0,
-          "name": "QEMU DVD-ROM"
+          "name": "QEMU DVD-ROM",
+          "value": 0
         },
         "revision": {
-          "value": 0,
-          "name": "2.5+"
+          "name": "2.5+",
+          "value": 0
         },
         "model": "QEMU DVD-ROM",
         "attached_to": 14,
         "sysfs_id": "/class/block/sr0",
         "sysfs_bus_id": "1:0:0:0",
         "sysfs_device_link": "/devices/pci0000:00/0000:00:01.1/ata2/host1/target1:0:0/1:0:0:0",
+        "sysfs_iommu_group_id": 0,
         "unix_device_name": "/dev/sr0",
         "unix_device_number": {
           "type": 98,
           "major": 11,
+          "minor": 0,
+          "range": 1
+        },
+        "unix_device_names": [
+          "/dev/cdrom",
+          "/dev/disk/by-diskseq/3",
+          "/dev/disk/by-id/ata-QEMU_DVD-ROM_QM00003",
+          "/dev/disk/by-path/pci-0000:00:01.1-ata-2",
+          "/dev/disk/by-path/pci-0000:00:01.1-ata-2.0",
+          "/dev/sr0"
+        ],
+        "unix_device_name_2": "/dev/sg0",
+        "unix_device_number_2": {
+          "type": 99,
+          "major": 21,
           "minor": 0,
           "range": 1
         },
@@ -379,7 +377,7 @@
           "spec_store_bypass",
           "srso"
         ],
-        "bogo": 6800,
+        "bogo": 6799.99,
         "cache": 512,
         "units": 2,
         "physical_id": 0,
@@ -402,17 +400,18 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 262,
-          "name": "Mass Storage Device"
+          "name": "Mass Storage Device",
+          "value": 262
         },
         "sub_class": {
-          "value": 0,
-          "name": "Disk"
+          "name": "Disk",
+          "value": 0
         },
         "model": "Disk",
         "sysfs_id": "/class/block/fd0",
         "sysfs_bus_id": "floppy.0",
         "sysfs_device_link": "/devices/platform/floppy.0",
+        "sysfs_iommu_group_id": 0,
         "unix_device_name": "/dev/fd0",
         "unix_device_number": {
           "type": 98,
@@ -420,6 +419,9 @@
           "minor": 0,
           "range": 1
         },
+        "unix_device_names": [
+          "/dev/fd0"
+        ],
         "resources": [
           {
             "type": "size",
@@ -445,18 +447,19 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 262,
-          "name": "Mass Storage Device"
+          "name": "Mass Storage Device",
+          "value": 262
         },
         "sub_class": {
-          "value": 0,
-          "name": "Disk"
+          "name": "Disk",
+          "value": 0
         },
         "model": "Disk",
         "attached_to": 21,
         "sysfs_id": "/class/block/vda",
         "sysfs_bus_id": "virtio6",
         "sysfs_device_link": "/devices/pci0000:00/0000:00:09.0/virtio6",
+        "sysfs_iommu_group_id": 0,
         "unix_device_name": "/dev/vda",
         "unix_device_number": {
           "type": 98,
@@ -464,6 +467,15 @@
           "minor": 0,
           "range": 16
         },
+        "unix_device_names": [
+          "/dev/disk/by-diskseq/1",
+          "/dev/disk/by-id/virtio-root",
+          "/dev/disk/by-label/nixos",
+          "/dev/disk/by-path/pci-0000:00:09.0",
+          "/dev/disk/by-path/virtio-pci-0000:00:09.0",
+          "/dev/disk/by-uuid/d907ce0d-0d9b-446f-8f2e-6b0bd67873f1",
+          "/dev/vda"
+        ],
         "resources": [
           {
             "type": "disk_geo",
@@ -490,45 +502,40 @@
           "virtio_blk"
         ],
         "driver_modules": [
-          "virtio_pci",
-          "virtio_blk"
+          "virtio_blk",
+          "virtio_pci"
         ]
       }
     ],
     "graphics_card": [
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 2,
         "base_class": {
-          "value": 3,
-          "name": "Display controller"
+          "name": "Display controller",
+          "value": 3
         },
         "sub_class": {
-          "value": 0,
-          "name": "VGA compatible controller"
+          "name": "VGA compatible controller",
+          "value": 0
         },
         "pci_interface": {
-          "value": 0,
-          "name": "VGA"
+          "name": "VGA",
+          "value": 0
         },
         "vendor": {
-          "type": "pci",
           "value": 4660
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
           "value": 4369
         },
         "sub_device": {
-          "type": "pci",
           "value": 4352
         },
         "revision": {
@@ -537,6 +544,7 @@
         "model": "VGA compatible controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:02.0",
         "sysfs_bus_id": "0000:00:02.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "mem",
@@ -588,32 +596,31 @@
     "hub": [
       {
         "bus_type": {
-          "value": 134,
-          "name": "USB"
+          "name": "USB",
+          "value": 134
         },
         "slot": 0,
         "base_class": {
-          "value": 266,
-          "name": "Hub"
+          "name": "Hub",
+          "value": 266
         },
         "vendor": {
-          "type": "usb",
-          "value": 7531,
-          "name": "Linux Foundation"
+          "name": "Linux 6.6.48 uhci_hcd",
+          "value": 7531
         },
         "device": {
-          "type": "usb",
-          "value": 1,
-          "name": "1.1 root hub"
+          "name": "UHCI Host Controller",
+          "value": 1
         },
         "revision": {
-          "value": 0,
-          "name": "6.06"
+          "name": "6.06",
+          "value": 0
         },
-        "model": "Linux Foundation 1.1 root hub",
+        "model": "Linux 6.6.48 uhci_hcd UHCI Host Controller",
         "attached_to": 7,
         "sysfs_id": "/devices/pci0000:00/0000:00:01.2/usb1/1-0:1.0",
         "sysfs_bus_id": "1-0:1.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "baud",
@@ -635,7 +642,7 @@
           "used_connections": 0,
           "interface_descriptor": 0,
           "speed": 12000000,
-          "manufacturer": "Linux 6.6.45 uhci_hcd",
+          "manufacturer": "Linux 6.6.48 uhci_hcd",
           "product": "UHCI Host Controller",
           "device_class": "hub",
           "interface_class": "hub",
@@ -658,39 +665,24 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 256,
-          "name": "Monitor"
+          "name": "Monitor",
+          "value": 256
         },
         "sub_class": {
-          "value": 2,
-          "name": "LCD Monitor"
+          "name": "LCD Monitor",
+          "value": 2
         },
         "vendor": {
-          "type": "eisa",
           "value": 18708
         },
         "device": {
-          "type": "eisa",
-          "value": 4660,
-          "name": "QEMU Monitor"
+          "name": "QEMU Monitor",
+          "value": 4660
         },
         "model": "QEMU Monitor",
         "attached_to": 17,
+        "sysfs_iommu_group_id": 0,
         "resources": [
-          {
-            "type": "monitor",
-            "width": 640,
-            "height": 480,
-            "vertical_frequency": 60,
-            "interlaced": false
-          },
-          {
-            "type": "monitor",
-            "width": 800,
-            "height": 600,
-            "vertical_frequency": 60,
-            "interlaced": false
-          },
           {
             "type": "monitor",
             "width": 1024,
@@ -700,15 +692,8 @@
           },
           {
             "type": "monitor",
-            "width": 2048,
-            "height": 1152,
-            "vertical_frequency": 60,
-            "interlaced": false
-          },
-          {
-            "type": "monitor",
-            "width": 1920,
-            "height": 1080,
+            "width": 1280,
+            "height": 800,
             "vertical_frequency": 60,
             "interlaced": false
           },
@@ -721,8 +706,29 @@
           },
           {
             "type": "monitor",
-            "width": 1280,
-            "height": 800,
+            "width": 1920,
+            "height": 1080,
+            "vertical_frequency": 60,
+            "interlaced": false
+          },
+          {
+            "type": "monitor",
+            "width": 2048,
+            "height": 1152,
+            "vertical_frequency": 60,
+            "interlaced": false
+          },
+          {
+            "type": "monitor",
+            "width": 640,
+            "height": 480,
+            "vertical_frequency": 60,
+            "interlaced": false
+          },
+          {
+            "type": "monitor",
+            "width": 800,
+            "height": 600,
             "vertical_frequency": 60,
             "interlaced": false
           },
@@ -802,42 +808,33 @@
     "mouse": [
       {
         "bus_type": {
-          "value": 134,
-          "name": "USB"
+          "name": "USB",
+          "value": 134
         },
         "slot": 0,
         "base_class": {
-          "value": 261,
-          "name": "Mouse"
+          "name": "Mouse",
+          "value": 261
         },
         "sub_class": {
-          "value": 3,
-          "name": "USB Mouse"
+          "name": "USB Mouse",
+          "value": 3
         },
         "vendor": {
-          "type": "usb",
-          "value": 1575,
-          "name": "Adomax Technology Co., Ltd"
+          "name": "QEMU",
+          "value": 1575
         },
         "device": {
-          "type": "usb",
-          "value": 1,
-          "name": "QEMU Tablet"
+          "name": "QEMU USB Tablet",
+          "value": 1
         },
-        "compat_vendor": {
-          "type": "special",
-          "value": 512,
-          "name": "Unknown"
-        },
-        "compat_device": {
-          "type": "special",
-          "value": 1,
-          "name": "Generic USB Mouse"
-        },
-        "model": "Adomax QEMU Tablet",
+        "compat_vendor": "Unknown",
+        "compat_device": "Generic USB Mouse",
+        "model": "QEMU USB Tablet",
         "attached_to": 33,
         "sysfs_id": "/devices/pci0000:00/0000:00:01.2/usb1/1-1/1-1:1.0",
         "sysfs_bus_id": "1-1:1.0",
+        "sysfs_iommu_group_id": 0,
         "unix_device_name": "/dev/input/mice",
         "unix_device_number": {
           "type": 99,
@@ -845,6 +842,9 @@
           "minor": 63,
           "range": 1
         },
+        "unix_device_names": [
+          "/dev/input/mice"
+        ],
         "unix_device_name_2": "/dev/input/mouse0",
         "unix_device_number_2": {
           "type": 99,
@@ -906,33 +906,29 @@
     "network_controller": [
       {
         "bus_type": {
-          "value": 143,
-          "name": "Virtio"
+          "name": "Virtio",
+          "value": 143
         },
         "slot": 0,
         "base_class": {
-          "value": 2,
-          "name": "Network controller"
+          "name": "Network controller",
+          "value": 2
         },
         "sub_class": {
-          "value": 0,
-          "name": "Ethernet controller"
+          "name": "Ethernet controller",
+          "value": 0
         },
-        "vendor": {
-          "type": "special",
-          "value": 24596,
-          "name": "Virtio"
-        },
-        "device": {
-          "type": "special",
-          "value": 1,
-          "name": "Ethernet Card 0"
-        },
+        "vendor": "Virtio",
+        "device": "Ethernet Card 0",
         "model": "Virtio Ethernet Card 0",
         "attached_to": 13,
         "sysfs_id": "/devices/pci0000:00/0000:00:03.0/virtio0",
         "sysfs_bus_id": "virtio0",
+        "sysfs_iommu_group_id": 0,
         "unix_device_name": "eth0",
+        "unix_device_names": [
+          "eth0"
+        ],
         "resources": [
           {
             "type": "hwaddr",
@@ -941,10 +937,6 @@
           {
             "type": "phwaddr",
             "address": 53
-          },
-          {
-            "Type": "link",
-            "connected": true
           }
         ],
         "hotplug": "none",
@@ -965,18 +957,43 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 263,
-          "name": "Network Interface"
+          "name": "Network Interface",
+          "value": 263
         },
         "sub_class": {
-          "value": 1,
-          "name": "Ethernet"
+          "name": "Loopback",
+          "value": 0
+        },
+        "model": "Loopback network interface",
+        "sysfs_id": "/class/net/lo",
+        "sysfs_iommu_group_id": 0,
+        "unix_device_name": "lo",
+        "unix_device_names": [
+          "lo"
+        ],
+        "hotplug": "none",
+        "hotplug_slot": 0,
+        "is": {}
+      },
+      {
+        "slot": 0,
+        "base_class": {
+          "name": "Network Interface",
+          "value": 263
+        },
+        "sub_class": {
+          "name": "Ethernet",
+          "value": 1
         },
         "model": "Ethernet network interface",
         "attached_to": 24,
         "sysfs_id": "/class/net/eth0",
         "sysfs_device_link": "/devices/pci0000:00/0000:00:03.0/virtio0",
+        "sysfs_iommu_group_id": 0,
         "unix_device_name": "eth0",
+        "unix_device_names": [
+          "eth0"
+        ],
         "resources": [
           {
             "type": "hwaddr",
@@ -985,10 +1002,6 @@
           {
             "type": "phwaddr",
             "address": 53
-          },
-          {
-            "Type": "link",
-            "connected": true
           }
         ],
         "hotplug": "none",
@@ -1002,81 +1015,44 @@
         "driver_modules": [
           "virtio_net"
         ]
-      },
-      {
-        "slot": 0,
-        "base_class": {
-          "value": 263,
-          "name": "Network Interface"
-        },
-        "sub_class": {
-          "value": 0,
-          "name": "Loopback"
-        },
-        "model": "Loopback network interface",
-        "sysfs_id": "/class/net/lo",
-        "unix_device_name": "lo",
-        "resources": [
-          {
-            "Type": "link",
-            "connected": true
-          }
-        ],
-        "hotplug": "none",
-        "hotplug_slot": 0,
-        "is": {}
       }
     ],
     "storage_controller": [
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 1,
         "base_class": {
-          "value": 1,
-          "name": "Mass storage controller"
+          "name": "Mass storage controller",
+          "value": 1
         },
         "sub_class": {
-          "value": 1,
-          "name": "IDE interface"
+          "name": "IDE interface",
+          "value": 1
         },
         "pci_interface": {
-          "value": 128,
-          "name": "ISA Compatibility mode-only controller, supports bus mastering"
+          "value": 128
         },
         "vendor": {
-          "type": "pci",
-          "value": 32902,
-          "name": "Intel Corporation"
+          "name": "Intel Corporation",
+          "value": 32902
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 28688,
-          "name": "82371SB PIIX3 IDE [Natoma/Triton II]"
+          "value": 28688
         },
         "sub_device": {
-          "type": "pci",
-          "value": 4352,
-          "name": "Qemu virtual machine"
+          "value": 4352
         },
-        "model": "Red Hat Qemu virtual machine",
+        "model": "Intel IDE interface",
         "sysfs_id": "/devices/pci0000:00/0000:00:01.1",
         "sysfs_bus_id": "0000:00:01.1",
+        "sysfs_iommu_group_id": 0,
         "resources": [
-          {
-            "type": "io",
-            "base": 496,
-            "range": 8,
-            "enabled": true,
-            "access": "read_write"
-          },
           {
             "type": "io",
             "base": 1014,
@@ -1093,15 +1069,22 @@
           },
           {
             "type": "io",
-            "base": 886,
-            "range": 1,
+            "base": 49536,
+            "range": 16,
             "enabled": true,
             "access": "read_write"
           },
           {
             "type": "io",
-            "base": 49536,
-            "range": 16,
+            "base": 496,
+            "range": 8,
+            "enabled": true,
+            "access": "read_write"
+          },
+          {
+            "type": "io",
+            "base": 886,
+            "range": 1,
             "enabled": true,
             "access": "read_write"
           }
@@ -1129,32 +1112,25 @@
       },
       {
         "bus_type": {
-          "value": 143,
-          "name": "Virtio"
+          "name": "Virtio",
+          "value": 143
         },
         "slot": 0,
         "base_class": {
-          "value": 1,
-          "name": "Mass storage controller"
+          "name": "Mass storage controller",
+          "value": 1
         },
         "sub_class": {
-          "value": 128,
-          "name": "Storage controller"
+          "name": "Storage controller",
+          "value": 128
         },
-        "vendor": {
-          "type": "special",
-          "value": 24596,
-          "name": "Virtio"
-        },
-        "device": {
-          "type": "special",
-          "value": 2,
-          "name": "Storage 0"
-        },
+        "vendor": "Virtio",
+        "device": "Storage 0",
         "model": "Virtio Storage 0",
         "attached_to": 16,
         "sysfs_id": "/devices/pci0000:00/0000:00:09.0/virtio6",
         "sysfs_bus_id": "virtio6",
+        "sysfs_iommu_group_id": 0,
         "hotplug": "none",
         "hotplug_slot": 0,
         "is": {},
@@ -1175,39 +1151,33 @@
     "unknown": [
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 8,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
           "value": 2
         },
         "vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4105,
-          "name": "Virtio filesystem"
+          "value": 4105
         },
         "sub_device": {
-          "type": "pci",
           "value": 9
         },
-        "model": "Red Hat Virtio filesystem",
+        "model": "Unclassified device",
         "sysfs_id": "/devices/pci0000:00/0000:00:08.0",
         "sysfs_bus_id": "0000:00:08.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "io",
@@ -1217,12 +1187,10 @@
             "access": "read_write"
           },
           {
-            "type": "mem",
-            "base": 4273823744,
-            "range": 4096,
-            "enabled": true,
-            "access": "read_write",
-            "prefetch": "no"
+            "type": "irq",
+            "base": 11,
+            "triggered": 0,
+            "enabled": true
           },
           {
             "type": "mem",
@@ -1233,10 +1201,12 @@
             "prefetch": "no"
           },
           {
-            "type": "irq",
-            "base": 11,
-            "triggered": 0,
-            "enabled": true
+            "type": "mem",
+            "base": 4273823744,
+            "range": 4096,
+            "enabled": true,
+            "access": "read_write",
+            "prefetch": "no"
           }
         ],
         "detail": {
@@ -1262,39 +1232,33 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 4,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
           "value": 255
         },
         "vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4101,
-          "name": "Virtio RNG"
+          "value": 4101
         },
         "sub_device": {
-          "type": "pci",
           "value": 4
         },
-        "model": "Red Hat Virtio RNG",
+        "model": "Unclassified device",
         "sysfs_id": "/devices/pci0000:00/0000:00:04.0",
         "sysfs_bus_id": "0000:00:04.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "io",
@@ -1304,12 +1268,10 @@
             "access": "read_write"
           },
           {
-            "type": "mem",
-            "base": 4273807360,
-            "range": 4096,
-            "enabled": true,
-            "access": "read_write",
-            "prefetch": "no"
+            "type": "irq",
+            "base": 11,
+            "triggered": 0,
+            "enabled": true
           },
           {
             "type": "mem",
@@ -1320,10 +1282,12 @@
             "prefetch": "no"
           },
           {
-            "type": "irq",
-            "base": 11,
-            "triggered": 0,
-            "enabled": true
+            "type": "mem",
+            "base": 4273807360,
+            "range": 4096,
+            "enabled": true,
+            "access": "read_write",
+            "prefetch": "no"
           }
         ],
         "detail": {
@@ -1349,39 +1313,33 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 7,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
           "value": 2
         },
         "vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4105,
-          "name": "Virtio filesystem"
+          "value": 4105
         },
         "sub_device": {
-          "type": "pci",
           "value": 9
         },
-        "model": "Red Hat Virtio filesystem",
+        "model": "Unclassified device",
         "sysfs_id": "/devices/pci0000:00/0000:00:07.0",
         "sysfs_bus_id": "0000:00:07.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "io",
@@ -1391,12 +1349,10 @@
             "access": "read_write"
           },
           {
-            "type": "mem",
-            "base": 4273819648,
-            "range": 4096,
-            "enabled": true,
-            "access": "read_write",
-            "prefetch": "no"
+            "type": "irq",
+            "base": 10,
+            "triggered": 0,
+            "enabled": true
           },
           {
             "type": "mem",
@@ -1407,10 +1363,12 @@
             "prefetch": "no"
           },
           {
-            "type": "irq",
-            "base": 10,
-            "triggered": 0,
-            "enabled": true
+            "type": "mem",
+            "base": 4273819648,
+            "range": 4096,
+            "enabled": true,
+            "access": "read_write",
+            "prefetch": "no"
           }
         ],
         "detail": {
@@ -1436,40 +1394,34 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 3,
         "base_class": {
-          "value": 2,
-          "name": "Network controller"
+          "name": "Network controller",
+          "value": 2
         },
         "sub_class": {
-          "value": 0,
-          "name": "Ethernet controller"
+          "name": "Ethernet controller",
+          "value": 0
         },
         "vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4096,
-          "name": "Virtio network device"
+          "value": 4096
         },
         "sub_device": {
-          "type": "pci",
           "value": 1
         },
-        "model": "Red Hat Virtio network device",
+        "model": "Ethernet controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:03.0",
         "sysfs_bus_id": "0000:00:03.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "io",
@@ -1479,12 +1431,10 @@
             "access": "read_write"
           },
           {
-            "type": "mem",
-            "base": 4273803264,
-            "range": 4096,
-            "enabled": true,
-            "access": "read_write",
-            "prefetch": "no"
+            "type": "irq",
+            "base": 10,
+            "triggered": 0,
+            "enabled": true
           },
           {
             "type": "mem",
@@ -1503,10 +1453,12 @@
             "prefetch": "no"
           },
           {
-            "type": "irq",
-            "base": 10,
-            "triggered": 0,
-            "enabled": true
+            "type": "mem",
+            "base": 4273803264,
+            "range": 4096,
+            "enabled": true,
+            "access": "read_write",
+            "prefetch": "no"
           }
         ],
         "detail": {
@@ -1532,39 +1484,33 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 6,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
           "value": 2
         },
         "vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4105,
-          "name": "Virtio filesystem"
+          "value": 4105
         },
         "sub_device": {
-          "type": "pci",
           "value": 9
         },
-        "model": "Red Hat Virtio filesystem",
+        "model": "Unclassified device",
         "sysfs_id": "/devices/pci0000:00/0000:00:06.0",
         "sysfs_bus_id": "0000:00:06.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "io",
@@ -1574,12 +1520,10 @@
             "access": "read_write"
           },
           {
-            "type": "mem",
-            "base": 4273815552,
-            "range": 4096,
-            "enabled": true,
-            "access": "read_write",
-            "prefetch": "no"
+            "type": "irq",
+            "base": 11,
+            "triggered": 0,
+            "enabled": true
           },
           {
             "type": "mem",
@@ -1590,10 +1534,12 @@
             "prefetch": "no"
           },
           {
-            "type": "irq",
-            "base": 11,
-            "triggered": 0,
-            "enabled": true
+            "type": "mem",
+            "base": 4273815552,
+            "range": 4096,
+            "enabled": true,
+            "access": "read_write",
+            "prefetch": "no"
           }
         ],
         "detail": {
@@ -1619,40 +1565,34 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 9,
         "base_class": {
-          "value": 1,
-          "name": "Mass storage controller"
+          "name": "Mass storage controller",
+          "value": 1
         },
         "sub_class": {
-          "value": 0,
-          "name": "SCSI storage controller"
+          "name": "SCSI storage controller",
+          "value": 0
         },
         "vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4097,
-          "name": "Virtio block device"
+          "value": 4097
         },
         "sub_device": {
-          "type": "pci",
           "value": 2
         },
-        "model": "Red Hat Virtio block device",
+        "model": "SCSI storage controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:09.0",
         "sysfs_bus_id": "0000:00:09.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "io",
@@ -1662,12 +1602,10 @@
             "access": "read_write"
           },
           {
-            "type": "mem",
-            "base": 4273827840,
-            "range": 4096,
-            "enabled": true,
-            "access": "read_write",
-            "prefetch": "no"
+            "type": "irq",
+            "base": 10,
+            "triggered": 0,
+            "enabled": true
           },
           {
             "type": "mem",
@@ -1678,10 +1616,12 @@
             "prefetch": "no"
           },
           {
-            "type": "irq",
-            "base": 10,
-            "triggered": 0,
-            "enabled": true
+            "type": "mem",
+            "base": 4273827840,
+            "range": 4096,
+            "enabled": true,
+            "access": "read_write",
+            "prefetch": "no"
           }
         ],
         "detail": {
@@ -1707,39 +1647,33 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 5,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
           "value": 2
         },
         "vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4105,
-          "name": "Virtio filesystem"
+          "value": 4105
         },
         "sub_device": {
-          "type": "pci",
           "value": 9
         },
-        "model": "Red Hat Virtio filesystem",
+        "model": "Unclassified device",
         "sysfs_id": "/devices/pci0000:00/0000:00:05.0",
         "sysfs_bus_id": "0000:00:05.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "io",
@@ -1749,12 +1683,10 @@
             "access": "read_write"
           },
           {
-            "type": "mem",
-            "base": 4273811456,
-            "range": 4096,
-            "enabled": true,
-            "access": "read_write",
-            "prefetch": "no"
+            "type": "irq",
+            "base": 10,
+            "triggered": 0,
+            "enabled": true
           },
           {
             "type": "mem",
@@ -1765,10 +1697,12 @@
             "prefetch": "no"
           },
           {
-            "type": "irq",
-            "base": 10,
-            "triggered": 0,
-            "enabled": true
+            "type": "mem",
+            "base": 4273811456,
+            "range": 4096,
+            "enabled": true,
+            "access": "read_write",
+            "prefetch": "no"
           }
         ],
         "detail": {
@@ -1794,51 +1728,43 @@
       },
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 10,
         "base_class": {
-          "value": 9,
-          "name": "Input device controller"
+          "name": "Input device controller",
+          "value": 9
         },
         "sub_class": {
-          "value": 0,
-          "name": "Keyboard controller"
+          "name": "Keyboard controller",
+          "value": 0
         },
         "vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 4178,
-          "name": "Virtio 1.0 input"
+          "value": 4178
         },
         "sub_device": {
-          "type": "pci",
           "value": 4352
         },
         "revision": {
           "value": 1
         },
-        "model": "Red Hat Virtio 1.0 input",
+        "model": "Keyboard controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:0a.0",
         "sysfs_bus_id": "0000:00:0a.0",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
-            "type": "mem",
-            "base": 4273831936,
-            "range": 4096,
-            "enabled": true,
-            "access": "read_write",
-            "prefetch": "no"
+            "type": "irq",
+            "base": 11,
+            "triggered": 0,
+            "enabled": true
           },
           {
             "type": "mem",
@@ -1849,10 +1775,12 @@
             "prefetch": "no"
           },
           {
-            "type": "irq",
-            "base": 11,
-            "triggered": 0,
-            "enabled": true
+            "type": "mem",
+            "base": 4273831936,
+            "range": 4096,
+            "enabled": true,
+            "access": "read_write",
+            "prefetch": "no"
           }
         ],
         "detail": {
@@ -1879,26 +1807,20 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
-        "vendor": {
-          "type": "special",
-          "value": 24596,
-          "name": "Virtio"
-        },
-        "device": {
-          "type": "special",
-          "value": 4
-        },
+        "vendor": "Virtio",
+        "device": "",
         "model": "Virtio Unclassified device",
         "attached_to": 9,
         "sysfs_id": "/devices/pci0000:00/0000:00:04.0/virtio1",
         "sysfs_bus_id": "virtio1",
+        "sysfs_iommu_group_id": 0,
         "hotplug": "none",
         "hotplug_slot": 0,
         "is": {},
@@ -1915,26 +1837,20 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
-        "vendor": {
-          "type": "special",
-          "value": 24596,
-          "name": "Virtio"
-        },
-        "device": {
-          "type": "special",
-          "value": 9
-        },
+        "vendor": "Virtio",
+        "device": "",
         "model": "Virtio Unclassified device",
         "attached_to": 10,
         "sysfs_id": "/devices/pci0000:00/0000:00:07.0/virtio4",
         "sysfs_bus_id": "virtio4",
+        "sysfs_iommu_group_id": 0,
         "hotplug": "none",
         "hotplug_slot": 0,
         "is": {},
@@ -1951,26 +1867,20 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
-        "vendor": {
-          "type": "special",
-          "value": 24596,
-          "name": "Virtio"
-        },
-        "device": {
-          "type": "special",
-          "value": 9
-        },
+        "vendor": "Virtio",
+        "device": "",
         "model": "Virtio Unclassified device",
         "attached_to": 18,
         "sysfs_id": "/devices/pci0000:00/0000:00:05.0/virtio2",
         "sysfs_bus_id": "virtio2",
+        "sysfs_iommu_group_id": 0,
         "hotplug": "none",
         "hotplug_slot": 0,
         "is": {},
@@ -1987,26 +1897,20 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
-        "vendor": {
-          "type": "special",
-          "value": 24596,
-          "name": "Virtio"
-        },
-        "device": {
-          "type": "special",
-          "value": 18
-        },
+        "vendor": "Virtio",
+        "device": "",
         "model": "Virtio Unclassified device",
         "attached_to": 19,
         "sysfs_id": "/devices/pci0000:00/0000:00:0a.0/virtio7",
         "sysfs_bus_id": "virtio7",
+        "sysfs_iommu_group_id": 0,
         "unix_device_name": "/dev/input/event3",
         "unix_device_number": {
           "type": 99,
@@ -2014,6 +1918,10 @@
           "minor": 67,
           "range": 1
         },
+        "unix_device_names": [
+          "/dev/input/by-path/pci-0000:00:0a.0-event-kbd",
+          "/dev/input/event3"
+        ],
         "hotplug": "none",
         "hotplug_slot": 0,
         "is": {},
@@ -2030,26 +1938,20 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
-        "vendor": {
-          "type": "special",
-          "value": 24596,
-          "name": "Virtio"
-        },
-        "device": {
-          "type": "special",
-          "value": 9
-        },
+        "vendor": "Virtio",
+        "device": "",
         "model": "Virtio Unclassified device",
         "attached_to": 6,
         "sysfs_id": "/devices/pci0000:00/0000:00:08.0/virtio5",
         "sysfs_bus_id": "virtio5",
+        "sysfs_iommu_group_id": 0,
         "hotplug": "none",
         "hotplug_slot": 0,
         "is": {},
@@ -2066,26 +1968,20 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
         "sub_class": {
-          "value": 0,
-          "name": "Unclassified device"
+          "name": "Unclassified device",
+          "value": 0
         },
-        "vendor": {
-          "type": "special",
-          "value": 24596,
-          "name": "Virtio"
-        },
-        "device": {
-          "type": "special",
-          "value": 9
-        },
+        "vendor": "Virtio",
+        "device": "",
         "model": "Virtio Unclassified device",
         "attached_to": 15,
         "sysfs_id": "/devices/pci0000:00/0000:00:06.0/virtio3",
         "sysfs_bus_id": "virtio3",
+        "sysfs_iommu_group_id": 0,
         "hotplug": "none",
         "hotplug_slot": 0,
         "is": {},
@@ -2102,23 +1998,27 @@
       {
         "slot": 0,
         "base_class": {
-          "value": 7,
-          "name": "Communication controller"
+          "name": "Communication controller",
+          "value": 7
         },
         "sub_class": {
-          "value": 0,
-          "name": "Serial controller"
+          "name": "Serial controller",
+          "value": 0
         },
         "pci_interface": {
-          "value": 2,
-          "name": "16550"
+          "name": "16550",
+          "value": 2
         },
         "device": {
-          "value": 0,
-          "name": "16550A"
+          "name": "16550A",
+          "value": 0
         },
         "model": "16550A",
+        "sysfs_iommu_group_id": 0,
         "unix_device_name": "/dev/ttyS0",
+        "unix_device_names": [
+          "/dev/ttyS0"
+        ],
         "resources": [
           {
             "type": "io",
@@ -2142,48 +2042,42 @@
     "usb_controller": [
       {
         "bus_type": {
-          "value": 4,
-          "name": "PCI"
+          "name": "PCI",
+          "value": 4
         },
         "slot": 1,
         "base_class": {
-          "value": 12,
-          "name": "Serial bus controller"
+          "name": "Serial bus controller",
+          "value": 12
         },
         "sub_class": {
-          "value": 3,
-          "name": "USB Controller"
+          "name": "USB Controller",
+          "value": 3
         },
         "pci_interface": {
-          "value": 0,
-          "name": "UHCI"
+          "name": "UHCI",
+          "value": 0
         },
         "vendor": {
-          "type": "pci",
-          "value": 32902,
-          "name": "Intel Corporation"
+          "name": "Intel Corporation",
+          "value": 32902
         },
         "sub_vendor": {
-          "type": "pci",
-          "value": 6900,
-          "name": "Red Hat, Inc."
+          "value": 6900
         },
         "device": {
-          "type": "pci",
-          "value": 28704,
-          "name": "82371SB PIIX3 USB [Natoma/Triton II]"
+          "value": 28704
         },
         "sub_device": {
-          "type": "pci",
-          "value": 4352,
-          "name": "QEMU Virtual Machine"
+          "value": 4352
         },
         "revision": {
           "value": 1
         },
-        "model": "Red Hat QEMU Virtual Machine",
+        "model": "Intel USB Controller",
         "sysfs_id": "/devices/pci0000:00/0000:00:01.2",
         "sysfs_bus_id": "0000:00:01.2",
+        "sysfs_iommu_group_id": 0,
         "resources": [
           {
             "type": "io",
@@ -2238,66 +2132,56 @@
     ]
   },
   "smbios": {
-    "bios": [
-      {
-        "handle": 0,
-        "vendor": "SeaBIOS",
-        "version": "rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org",
-        "date": "04/01/2014",
-        "features": null,
-        "start_address": "0xe8000",
-        "rom_size": 65536
-      }
-    ],
-    "chassis": [
-      {
-        "handle": 768,
-        "manufacturer": "QEMU",
-        "version": "pc-i440fx-9.0",
-        "chassis_type": {
-          "value": 1,
-          "name": "Other"
-        },
-        "lock_present": false,
-        "bootup_state": {
-          "value": 3,
-          "name": "Safe"
-        },
-        "power_state": {
-          "value": 3,
-          "name": "Safe"
-        },
-        "thermal_state": {
-          "value": 3,
-          "name": "Safe"
-        },
-        "security_state": {
-          "value": 2,
-          "name": "Unknown"
-        },
-        "oem": "0x0"
-      }
-    ],
-    "end_of_table": [
-      {
-        "handle": 32512,
-        "data": "0x7f000000"
-      }
-    ],
+    "bios": {
+      "handle": 0,
+      "vendor": "SeaBIOS",
+      "version": "rel-1.16.3-0-ga6ed6b701f0a-prebuilt.qemu.org",
+      "date": "04/01/2014",
+      "features": null,
+      "start_address": "0xe8000",
+      "rom_size": 65536
+    },
+    "chassis": {
+      "handle": 768,
+      "manufacturer": "QEMU",
+      "version": "pc-i440fx-9.0",
+      "chassis_type": {
+        "name": "Other",
+        "value": 1
+      },
+      "lock_present": false,
+      "bootup_state": {
+        "name": "Safe",
+        "value": 3
+      },
+      "power_state": {
+        "name": "Safe",
+        "value": 3
+      },
+      "thermal_state": {
+        "name": "Safe",
+        "value": 3
+      },
+      "security_state": {
+        "name": "Unknown",
+        "value": 2
+      },
+      "oem": "0x0"
+    },
     "memory_array": [
       {
         "handle": 4096,
         "location": {
-          "value": 1,
-          "name": "Other"
+          "name": "Other",
+          "value": 1
         },
         "usage": {
-          "value": 3,
-          "name": "System memory"
+          "name": "System memory",
+          "value": 3
         },
         "ecc": {
-          "value": 6,
-          "name": "Multi-bit"
+          "name": "Multi-bit",
+          "value": 6
         },
         "max_size": 2097152,
         "error_handle": 65534,
@@ -2326,13 +2210,13 @@
         "ecc_bits": 0,
         "size": 2097152,
         "form_factor": {
-          "value": 9,
-          "name": "DIMM"
+          "name": "DIMM",
+          "value": 9
         },
         "set": 0,
         "memory_type": {
-          "value": 7,
-          "name": "RAM"
+          "name": "RAM",
+          "value": 7
         },
         "memory_type_details": [
           "Other"
@@ -2345,52 +2229,41 @@
         "handle": 1024,
         "socket": "CPU 0",
         "socket_type": {
-          "value": 1,
-          "name": "Other"
+          "name": "Other",
+          "value": 1
         },
         "socket_populated": true,
         "manufacturer": "QEMU",
         "version": "pc-i440fx-9.0",
-        "asset_tag": "",
         "part": "",
         "processor_type": {
-          "value": 3,
-          "name": "CPU"
+          "name": "CPU",
+          "value": 3
         },
         "processor_family": {
-          "value": 254,
-          "name": "Other"
+          "name": "Other",
+          "value": 254
         },
         "processor_status": {
-          "value": 1,
-          "name": "Enabled"
+          "name": "Enabled",
+          "value": 1
         },
-        "voltage": 0,
         "clock_ext": 0,
         "clock_max": 2000,
-        "clock_current": 2000,
         "cache_handle_l1": 0,
         "cache_handle_l2": 0,
         "cache_handle_l3": 0
       }
     ],
-    "system": [
-      {
-        "handle": 256,
-        "manufacturer": "QEMU",
-        "product": "Standard PC (i440FX + PIIX, 1996)",
-        "version": "pc-i440fx-9.0",
-        "wake_up": {
-          "value": 6,
-          "name": "Power Switch"
-        }
+    "system": {
+      "handle": 256,
+      "manufacturer": "QEMU",
+      "product": "Standard PC (i440FX + PIIX, 1996)",
+      "version": "pc-i440fx-9.0",
+      "wake_up": {
+        "name": "Power Switch",
+        "value": 6
       }
-    ],
-    "system_boot": [
-      {
-        "handle": 8192,
-        "data": "0x20000000000031002f692f"
-      }
-    ]
+    }
   }
 }

@@ -6,7 +6,11 @@ let
 in
 {
   options.facter.bluetooth.enable = lib.mkEnableOption "Enable the Facter bluetooth module" // {
-    default = builtins.length report.hardware.bluetooth > 0;
+    default =
+      let
+        bluetooth = report.hardware.bluetooth or [ ];
+      in
+      builtins.length bluetooth > 0;
   };
 
   config =

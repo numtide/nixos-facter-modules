@@ -11,9 +11,12 @@ This is made possible by the hardware report provided by [NixOS Facter].
 
 By default, these modules enable or disable themselves based on detected hardware.
 
+For more information, see the [docs].
+
 [NixOS modules]: https://wiki.nixos.org/wiki/NixOS_modules
 [NixOS Facter]: https://github.com/numtide/nixos-facter
 [NixOS Hardware]: https://github.com/NixOS/nixos-hardware
+[docs]: https://numtide.github.io/nixos-facter-modules
 
 ## Getting started
 

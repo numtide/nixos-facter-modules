@@ -22,7 +22,7 @@ in
     report = mkOption {
       type = types.raw;
       default = builtins.fromJSON (builtins.readFile config.facter.reportPath);
-      description = "An import fo the reportPath.";
+      description = "An import for the reportPath.";
     };
 
     reportPath = mkOption {
