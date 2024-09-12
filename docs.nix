@@ -21,6 +21,8 @@ pkgs.mkShellNoCC {
         ];
       };
 
+      snakeCase = with lib; replaceStrings upperChars (map (s: "_" + s) lowerChars);
+
       # Capture root so we can identify our store paths below
       root = toString ./.;
 
@@ -58,7 +60,7 @@ pkgs.mkShellNoCC {
           in
           pkgs.runCommand "${name}-doc" { } ''
             mkdir $out
-            cat ${optionsDoc.optionsCommonMark} > $out/${name}.md
+            cat ${optionsDoc.optionsCommonMark} > $out/${snakeCase name}.md
           ''
         ) eval.options.facter;
       };
@@ -67,7 +69,7 @@ pkgs.mkShellNoCC {
     [
       (pkgs.writeScriptBin "mkdocs" ''
         # rsync in NixOS modules doc to avoid issues with symlinks being owned by root
-        rsync -aL ${optionsDoc}/ ./docs/content/reference/nixos_modules
+        rsync -aL --chmod=u+rw --delete-before ${optionsDoc}/ ./docs/content/reference/nixos_modules
 
         # execute the underlying command
         ${pkgs.mkdocs}/bin/mkdocs "$@"
