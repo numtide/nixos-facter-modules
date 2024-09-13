@@ -16,7 +16,7 @@ in
 
     # update microcode
     hardware.cpu.amd.updateMicrocode = lib.mkIf hasAmdCpu (
-      lib.mkDefault config.hardware.enableRedstributableFirmware
+      lib.mkDefault config.hardware.enableRedistributableFirmware
     );
     hardware.cpu.intel.updateMicrocode = lib.mkIf hasIntelCpu (
       lib.mkDefault config.hardware.enableRedistributableFirmware
