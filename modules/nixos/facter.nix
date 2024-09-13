@@ -10,12 +10,13 @@ let
 in
 {
   imports = [
-    ./boot.nix
-    ./networking
-    ./virtualisation.nix
-    ./firmware.nix
-    ./system.nix
     ./bluetooth.nix
+    ./boot.nix
+    ./firmware.nix
+    ./graphics.nix
+    ./networking
+    ./system.nix
+    ./virtualisation.nix
   ];
 
   options.facter = with lib; {
