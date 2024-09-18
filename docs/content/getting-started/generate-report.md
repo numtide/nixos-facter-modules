@@ -2,18 +2,25 @@
 
 To generate a report, you will need to have [Nix] installed on the target machine.
 
-```shell
-sudo nix run \
-  --option experimental-features "nix-command flakes" \
-  --option extra-substituters https://numtide.cachix.org \
-  --option extra-trusted-public-keys numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE= \
-  github:numtide/nixos-facter -- -o facter.json
-```
+=== "Flake"
 
-!!! note
+    ```shell
+    sudo nix run \
+      --option experimental-features "nix-command flakes" \
+      --option extra-substituters https://numtide.cachix.org \
+      --option extra-trusted-public-keys numtide.cachix.org-1:2ps1kLBUWjxIneOy1Ik6cQjb41X0iXVXeHigGmycPPE= \
+      github:numtide/nixos-facter -- -o facter.json
+    ```
 
-    In the near-future we will add [nixos-facter] to [nixpkgs]. Until then, we recommend using the [Numtide Binary Cache]
-    to avoid having to build everything from scratch.
+    !!! warning
+
+        The latest report output from `main` may be incompatible. Run from [nixpkgs] to ensure a stable report output.
+
+=== "Nixpkgs"
+
+    ```shell
+    sudo nix run nixpkgs#nixos-facter -- -o facter.json
+    ```
 
 This will scan your system and produce a JSON-based report in a file named `facter.json`:
 
