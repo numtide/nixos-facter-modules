@@ -13,16 +13,16 @@ in
     with lib;
     mkIf cfg.enable {
       boot.initrd.availableKernelModules = filter (dm: dm != null) (
-        map
-          (
-            {
-              driver_module ? null,
-              ...
-            }:
-            driver_module
-          )
-          (
-            unique (flatten [
+        unique (
+          map
+            (
+              {
+                driver_module ? null,
+                ...
+              }:
+              driver_module
+            )
+            (flatten [
               # Needed if we want to use the keyboard when things go wrong in the initrd.
               (report.hardware.usb_controller or [ ])
               # A disk might be attached.
@@ -31,7 +31,7 @@ in
               (report.hardware.disk or [ ])
               (report.hardware.storage_controller or [ ])
             ])
-          )
+        )
       );
     };
 }
