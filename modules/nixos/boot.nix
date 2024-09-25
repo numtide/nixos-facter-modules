@@ -1,10 +1,9 @@
 { lib, config, ... }:
 let
+  facterLib = import ../../lib/lib.nix lib;
 
   cfg = config.facter.boot;
   inherit (config.facter) report;
-  collectDriver = list: lib.foldl' (lst: value: lst ++ value.driver_modules or [ ]) [ ] list;
-  stringSet = list: builtins.attrNames (builtins.groupBy lib.id list);
 in
 {
   options.facter.boot.enable = lib.mkEnableOption "Enable the Facter Boot module" // {
@@ -14,8 +13,8 @@ in
   config =
     with lib;
     mkIf cfg.enable {
-      boot.initrd.availableKernelModules = stringSet (
-        collectDriver (
+      boot.initrd.availableKernelModules = facterLib.stringSet (
+        facterLib.collectDrivers (
           # Needed if we want to use the keyboard when things go wrong in the initrd.
           (report.hardware.usb_controller or [ ])
           # A disk might be attached.
