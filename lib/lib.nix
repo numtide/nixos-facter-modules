@@ -23,9 +23,11 @@ let
       vendor_name == name
     ) cpus;
 
+  collectDrivers = list: lib.foldl' (lst: value: lst ++ value.driver_modules or [ ]) [ ] list;
+  stringSet = list: builtins.attrNames (builtins.groupBy lib.id list);
 in
 {
-  inherit hasCpu;
+  inherit hasCpu collectDrivers stringSet;
   hasAmdCpu = hasCpu "AuthenticAMD";
   hasIntelCpu = hasCpu "GenuineIntel";
 }
