@@ -11,7 +11,8 @@ in
 {
   imports = [
     ./bluetooth.nix
-    ./boot.nix
+    ./disk.nix
+    ./keyboard.nix
     ./firmware.nix
     ./graphics.nix
     ./networking
