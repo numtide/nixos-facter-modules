@@ -2,11 +2,11 @@
 let
   facterLib = import ../../lib/lib.nix lib;
 
-  cfg = config.facter.boot;
+  cfg = config.facter.detected.boot;
   inherit (config.facter) report;
 in
 {
-  options.facter.boot.enable = lib.mkEnableOption "Enable the Facter Boot module" // {
+  options.facter.detected.boot.enable = lib.mkEnableOption "Enable the Facter Boot module" // {
     default = true;
   };
 

@@ -3,7 +3,7 @@ let
   facterLib = import ../../lib/lib.nix lib;
 
   inherit (config.facter) report;
-  isBaremetal = config.facter.virtualisation.none.enable;
+  isBaremetal = config.facter.detected.virtualisation.none.enable;
   hasAmdCpu = facterLib.hasAmdCpu report;
   hasIntelCpu = facterLib.hasIntelCpu report;
 in
