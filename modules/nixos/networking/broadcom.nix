@@ -1,10 +1,10 @@
 { lib, config, ... }:
 let
   inherit (config.facter) report;
-  cfg = config.facter.networking.broadcom;
+  cfg = config.facter.detected.networking.broadcom;
 in
 {
-  options.facter.networking.broadcom = with lib; {
+  options.facter.detected.networking.broadcom = with lib; {
     full_mac.enable = mkEnableOption "Enable the Facter Broadcom Full MAC module" // {
 
       default = lib.any (

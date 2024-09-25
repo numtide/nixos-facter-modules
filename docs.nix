@@ -65,25 +65,9 @@ pkgs.mkShellNoCC {
           cat ${optionsDoc.optionsCommonMark} > $out/${snakeCase name}.md
         '';
 
-      # Allows us to gather all options that are immediate children of `facter` and which have no child options.
-      # e.g. facter.reportPath, facter.report.
-      # For all other options we group them by the first immediate child of `facter`.
-      # e.g. facter.bluetooth, facter.boot and so on.
-      # This allows us to have a page for root facter options "facter.md", and a page each for the major sub modules.
-      facterOptionsFilter =
-        _:
-        {
-          loc ? [ ],
-          options ? [ ],
-          ...
-        }:
-        (lib.length loc) == 2 && ((lib.elemAt loc 0) == "facter") && (lib.length options) == 0;
-
-      otherOptionsFilter = n: v: !(facterOptionsFilter n v);
-
-      facterMarkdown = mkMarkdown "facter" (lib.filterAttrs facterOptionsFilter eval.options.facter);
+      facterMarkdown = mkMarkdown "facter" eval.options.facter.detected;
       otherMarkdown = lib.mapAttrsToList mkMarkdown (
-        lib.filterAttrs otherOptionsFilter eval.options.facter
+        lib.filterAttrs (n: v: n != "detected") eval.options.facter
       );
 
       optionsMarkdown = pkgs.symlinkJoin {
@@ -92,7 +76,6 @@ pkgs.mkShellNoCC {
       };
 
     in
-    with pkgs;
     [
       (pkgs.writeScriptBin "mkdocs" ''
         # rsync in NixOS modules doc to avoid issues with symlinks being owned by root

@@ -1,10 +1,10 @@
 { lib, config, ... }:
 let
   inherit (config.facter) report;
-  cfg = config.facter.networking.intel;
+  cfg = config.facter.detected.networking.intel;
 in
 {
-  options.facter.networking.intel = with lib; {
+  options.facter.detected.networking.intel = with lib; {
     _2200BG.enable = mkEnableOption "Enable the Facter Intel 2200BG module" // {
 
       default = lib.any (

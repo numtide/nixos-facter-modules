@@ -6,10 +6,10 @@
 }:
 let
   inherit (config.facter) report;
-  cfg = config.facter.virtualisation;
+  cfg = config.facter.detected.virtualisation;
 in
 {
-  options.facter.virtualisation = {
+  options.facter.detected.virtualisation = {
     virtio_scsi.enable = lib.mkEnableOption "Enable the Facter Virtualisation Virtio SCSI module" // {
       default = lib.any (
         { vendor, device, ... }:
