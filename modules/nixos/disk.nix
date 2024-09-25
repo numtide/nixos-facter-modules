@@ -2,17 +2,12 @@
 let
   facterLib = import ../../lib/lib.nix lib;
 
-  cfg = config.facter.detected.boot.disk;
   inherit (config.facter) report;
 in
 {
-  options.facter.detected.boot.disk.enable = lib.mkEnableOption "Enable Disk drivers in initrd" // {
-    default = true;
-  };
-
-  config =
-    lib.mkIf cfg.enable {
-      boot.initrd.availableKernelModules = facterLib.stringSet (
+  options.facter.detected.boot.disk.kernelModules = lib.mkOption {
+    type = lib.types.listOf lib.types.str;
+    default = facterLib.stringSet (
         facterLib.collectDrivers (
           # A disk might be attached.
           (report.hardware.firewire_controller or [ ])
@@ -21,5 +16,12 @@ in
           ++ (report.hardware.storage_controller or [ ])
         )
       );
-    };
+    description = ''
+      List of kernel modules that are needed to access the disk.
+    '';
+  };
+
+  config = {
+    boot.initrd.availableKernelModules = config.facter.detected.boot.disk.kernelModules;
+  };
 }
