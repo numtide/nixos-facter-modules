@@ -2,21 +2,19 @@
 let
   facterLib = import ../../lib/lib.nix lib;
 
-  cfg = config.facter.detected.boot.keyboard;
   inherit (config.facter) report;
 in
 {
-  options.facter.detected.boot.keyboard.enable =
-    lib.mkEnableOption "Enable Keyboard support in the initrd"
-    // {
-      default = true;
-    };
+  options.facter.detected.boot.keyboard.kernelModules = lib.mkOption {
+    type = lib.types.listOf lib.types.str;
+    default = facterLib.collectDrivers (report.hardware.usb_controller or [ ]);
+    example = [ "usbhid" ];
+    description = ''
+      List of kernel modules to include in the initrd to support the keyboard.
+    '';
+  };
 
-  config =
-    lib.mkIf cfg.enable {
-      boot.initrd.availableKernelModules = facterLib.stringSet (
-        # Needed if we want to use the keyboard when things go wrong in the initrd.
-        facterLib.collectDrivers (report.hardware.usb_controller or [ ])
-      );
-    };
+  config = {
+    boot.initrd.availableKernelModules = config.facter.detected.boot.keyboard.kernelModules;
+  };
 }
