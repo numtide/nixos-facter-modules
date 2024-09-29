@@ -43,14 +43,7 @@
             flake = publicInputs.self;
           }).value;
       };
-      nixosModules = {
-        boot = ./modules/nixos/boot.nix;
-        facter = ./modules/nixos/facter.nix;
-        firmware = ./modules/nixos/firmware.nix;
-        networking = ./modules/nixos/networking;
-        system = ./modules/nixos/system.nix;
-        virtualisation = ./modules/nixos/virtualisation.nix;
-      };
+      nixosModules.facter = ./modules/nixos/facter.nix;
     }
     //
       # DevOutputs
