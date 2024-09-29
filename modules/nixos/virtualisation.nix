@@ -25,15 +25,15 @@ in
       defaultText = "hardware dependent";
     };
     oracle.enable = lib.mkEnableOption "Enable the Facter Virtualisation Oracle module" // {
-      default = report.virtualisation == "oracle";
+      default = report.virtualisation or null == "oracle";
       defaultText = "environment dependent";
     };
     parallels.enable = lib.mkEnableOption "Enable the Facter Virtualisation Parallels module" // {
-      default = report.virtualisation == "parallels";
+      default = report.virtualisation or null == "parallels";
       defaultText = "environment dependent";
     };
     qemu.enable = lib.mkEnableOption "Enable the Facter Virtualisation Qemu module" // {
-      default = builtins.elem report.virtualisation [
+      default = builtins.elem (report.virtualisation or null) [
         "qemu"
         "kvm"
         "bochs"
@@ -41,12 +41,12 @@ in
       defaultText = "environment dependent";
     };
     hyperv.enable = lib.mkEnableOption "Enable the Facter Virtualisation Hyper-V module" // {
-      default = report.virtualisation == "microsoft";
+      default = report.virtualisation or null == "microsoft";
       defaultText = "environment dependent";
     };
     # no virtualisation detected
     none.enable = lib.mkEnableOption "Enable the Facter Virtualisation None module" // {
-      default = report.virtualisation == "none";
+      default = report.virtualisation or null == "none";
       defaultText = "environment dependent";
     };
   };
