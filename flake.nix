@@ -62,6 +62,20 @@
         checks = eachSystem (
           { pkgs, ... }:
           {
+            minimal-machine =
+              (pkgs.nixos [
+                publicInputs.self.nixosModules.facter
+                (
+                  { lib, config, ... }:
+                  {
+                    boot.loader.grub.devices = lib.mkForce [ "/dev/sda" ];
+                    fileSystems."/".device = lib.mkDefault "/dev/sda";
+                    users.users.root.initialPassword = "fnord23";
+                    system.stateVersion = config.system.nixos.version;
+                    nixpkgs.pkgs = pkgs;
+                  }
+                )
+              ]).config.system.build.toplevel;
             lib-tests = pkgs.runCommandLocal "lib-tests" { nativeBuildInputs = [ pkgs.nix-unit ]; } ''
               export HOME="$(realpath .)"
               export NIX_CONFIG='
