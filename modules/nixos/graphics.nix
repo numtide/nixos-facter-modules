@@ -21,8 +21,15 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
-    hardware.graphics.enable = lib.mkDefault true;
-    boot.initrd.kernelModules = config.facter.detected.boot.graphics.kernelModules;
-  };
+  config = lib.mkIf cfg.enable (
+    {
+      boot.initrd.kernelModules = config.facter.detected.boot.graphics.kernelModules;
+    }
+    // (
+      if lib.versionOlder lib.version "24.11pre" then
+        { hardware.opengl.enable = lib.mkDefault true; }
+      else
+        { hardware.graphics.enable = lib.mkDefault true; }
+    )
+  );
 }
