@@ -2,7 +2,7 @@
 
 <!-- prettier-ignore -->
 > [!NOTE]
-> **Status: alpha**
+> **Status: beta**
 
 A series of [NixOS modules] to be used in conjunction with [NixOS Facter].
 
