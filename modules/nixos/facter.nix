@@ -18,7 +18,11 @@
   options.facter = with lib; {
     report = mkOption {
       type = types.raw;
-      default = if config.facter.reportPath == null then {} else builtins.fromJSON (builtins.readFile config.facter.reportPath);
+      default =
+        if config.facter.reportPath == null then
+          { }
+        else
+          builtins.fromJSON (builtins.readFile config.facter.reportPath);
       description = "An import for the reportPath.";
     };
 

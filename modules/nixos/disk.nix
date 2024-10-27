@@ -8,14 +8,14 @@ in
   options.facter.detected.boot.disk.kernelModules = lib.mkOption {
     type = lib.types.listOf lib.types.str;
     default = facterLib.stringSet (
-        facterLib.collectDrivers (
-          # A disk might be attached.
-          (report.hardware.firewire_controller or [ ])
-          # definitely important
-          ++ (report.hardware.disk or [ ])
-          ++ (report.hardware.storage_controller or [ ])
-        )
-      );
+      facterLib.collectDrivers (
+        # A disk might be attached.
+        (report.hardware.firewire_controller or [ ])
+        # definitely important
+        ++ (report.hardware.disk or [ ])
+        ++ (report.hardware.storage_controller or [ ])
+      )
+    );
     description = ''
       List of kernel modules that are needed to access the disk.
     '';
