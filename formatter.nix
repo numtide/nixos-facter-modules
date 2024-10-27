@@ -2,7 +2,7 @@
 let
   hasNixFmt = pkgs.lib.meta.availableOn pkgs.stdenv.buildPlatform pkgs.nixfmt-rfc-style.compiler;
 in
-inputs.treefmt-nix.lib.mkWrapper pkgs {
+inputs.treefmt-nix.lib.evalModule pkgs {
   projectRootFile = ".git/config";
 
   programs = {
