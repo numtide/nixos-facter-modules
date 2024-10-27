@@ -97,10 +97,8 @@ in
 
     # parallels
     hardware.parallels.enable = lib.mkIf cfg.parallels.enable (lib.mkDefault true);
-    nixpkgs.config = lib.mkIf (!options.nixpkgs.pkgs.isDefined) {
-      allowUnfreePredicate = lib.mkIf cfg.parallels.enable (
-        pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ]
-      );
+    nixpkgs.config = lib.mkIf (!options.nixpkgs.pkgs.isDefined && cfg.parallels.enable) {
+      allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "prl-tools" ];
     };
   };
 }
