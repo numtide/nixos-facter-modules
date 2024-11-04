@@ -7,9 +7,10 @@
   imports = [
     ./bluetooth.nix
     ./disk.nix
-    ./keyboard.nix
+    ./fingerprint
     ./firmware.nix
     ./graphics
+    ./keyboard.nix
     ./networking
     ./system.nix
     ./virtualisation.nix

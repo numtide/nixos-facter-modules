@@ -60,6 +60,37 @@
           (pkgs.callPackage ./formatter.nix { inputs = publicInputs // privateInputs; }).config.build.wrapper
         );
 
+        packages = eachSystem (
+          { pkgs, ... }:
+          {
+            fprint-supported-devices = pkgs.libfprint.overrideAttrs (old: {
+              nativeBuildInputs = old.nativeBuildInputs or [ ] ++ [
+                pkgs.jq
+                pkgs.gawk
+              ];
+              buildPhase = ''
+                ninja libfprint/fprint-list-supported-devices
+              '';
+              outputs = [ "out" ];
+              installPhase = ''
+                ./libfprint/fprint-list-supported-devices | \
+                  grep -o -E '(\b[0-9a-fA-F]{4}:[0-9a-fA-F]{4}\b)' | \
+                  awk '{print toupper($0)}' | \
+                  jq -R -s 'split("\n") | map(select(. != "")) | map({key: ., value: true}) | from_entries' > $out
+              '';
+              # we cannot disable doInstallcheck because than we are missing nativeCheckInputs dependencies
+              installCheckPhase = "";
+            });
+            update-fprint-devices = pkgs.writeScriptBin "update-fprint-devices" ''
+              #!${pkgs.stdenv.shell}
+              target=$(git rev-parse --show-toplevel)/modules/nixos/fingerprint/devices.json
+              cat ${publicInputs.self.packages.${pkgs.system}.fprint-supported-devices} > "$target"
+              nix fmt -- "$target"
+              git add -- "$target"
+            '';
+          }
+        );
+
         checks = eachSystem (
           { pkgs, ... }:
           {
