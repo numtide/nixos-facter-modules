@@ -835,7 +835,7 @@
 <a id="__codelineno-0-67" name="__codelineno-0-67"></a>
 <a id="__codelineno-0-68" name="__codelineno-0-68"></a>      <span class="ss">facterMarkdown</span> <span class="o">=</span> mkMarkdown <span class="s2">&quot;facter&quot;</span> eval<span class="o">.</span>options<span class="o">.</span>facter<span class="o">.</span>detected<span class="p">;</span>
 <a id="__codelineno-0-69" name="__codelineno-0-69"></a>      <span class="ss">otherMarkdown</span> <span class="o">=</span> lib<span class="o">.</span>mapAttrsToList mkMarkdown <span class="p">(</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        lib<span class="o">.</span>filterAttrs <span class="p">(</span>n<span class="p">:</span> v<span class="p">:</span> n <span class="o">!=</span> <span class="s2">&quot;detected&quot;</span><span class="p">)</span> eval<span class="o">.</span>options<span class="o">.</span>facter
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        lib<span class="o">.</span>filterAttrs <span class="p">(</span>n<span class="p">:</span> _v<span class="p">:</span> n <span class="o">!=</span> <span class="s2">&quot;detected&quot;</span><span class="p">)</span> eval<span class="o">.</span>options<span class="o">.</span>facter
 <a id="__codelineno-0-71" name="__codelineno-0-71"></a>      <span class="p">);</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a>      <span class="ss">optionsMarkdown</span> <span class="o">=</span> pkgs<span class="o">.</span>symlinkJoin <span class="p">{</span>

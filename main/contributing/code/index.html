@@ -765,7 +765,8 @@ much of what is listed below, but it is left up to the reader to determine how t
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
 <span class="normal"><a href="#__codelineno-0-42">42</a></span>
 <span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span> pkgs<span class="p">,</span> inputs<span class="p">,</span> <span class="o">...</span> <span class="p">}:</span>
+<span class="normal"><a href="#__codelineno-0-44">44</a></span>
+<span class="normal"><a href="#__codelineno-0-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span> pkgs<span class="p">,</span> inputs<span class="p">,</span> <span class="o">...</span> <span class="p">}:</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="k">let</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3"></a>  <span class="ss">hasNixFmt</span> <span class="o">=</span> pkgs<span class="o">.</span>lib<span class="o">.</span>meta<span class="o">.</span>availableOn pkgs<span class="o">.</span>stdenv<span class="o">.</span>buildPlatform pkgs<span class="o">.</span>nixfmt-rfc-style<span class="o">.</span>compiler<span class="p">;</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">in</span>
@@ -784,31 +785,32 @@ much of what is listed below, but it is left up to the reader to determine how t
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>  <span class="ss">settings</span> <span class="o">=</span> <span class="p">{</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>    global<span class="o">.</span><span class="ss">excludes</span> <span class="o">=</span> <span class="p">[</span>
 <a id="__codelineno-0-19" name="__codelineno-0-19"></a>      <span class="s2">&quot;LICENSE&quot;</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a>      <span class="c1"># unsupported extensions</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>      <span class="s2">&quot;*.{gif,png,svg,tape,mts,lock,mod,sum,toml,env,envrc,gitignore}&quot;</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="p">];</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="ss">formatter</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a>      <span class="ss">deadnix</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a>        <span class="ss">priority</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a>      <span class="p">};</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>      <span class="ss">statix</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="ss">priority</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>      <span class="p">};</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a>      <span class="ss">nixfmt</span> <span class="o">=</span> pkgs<span class="o">.</span>lib<span class="o">.</span>mkIf hasNixFmt <span class="p">{</span> <span class="ss">priority</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="p">};</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>      <span class="ss">prettier</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>        <span class="ss">options</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>          <span class="s2">&quot;--tab-width&quot;</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>          <span class="s2">&quot;4&quot;</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a>        <span class="p">];</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="ss">includes</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;*.{css,html,js,json,jsx,md,mdx,scss,ts,yaml}&quot;</span> <span class="p">];</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>      <span class="p">};</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="p">};</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>  <span class="p">};</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="p">}</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a>      <span class="s2">&quot;*.narHash&quot;</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a>      <span class="c1"># unsupported extensions</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a>      <span class="s2">&quot;*.{gif,png,svg,tape,mts,lock,mod,sum,toml,env,envrc,gitignore}&quot;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="p">];</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>    <span class="ss">formatter</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>      <span class="ss">deadnix</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a>        <span class="ss">priority</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>      <span class="p">};</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>      <span class="ss">statix</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="ss">priority</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>      <span class="p">};</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>      <span class="ss">nixfmt</span> <span class="o">=</span> pkgs<span class="o">.</span>lib<span class="o">.</span>mkIf hasNixFmt <span class="p">{</span> <span class="ss">priority</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="p">};</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a>      <span class="ss">prettier</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>        <span class="ss">options</span> <span class="o">=</span> <span class="p">[</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a>          <span class="s2">&quot;--tab-width&quot;</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a>          <span class="s2">&quot;4&quot;</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a>        <span class="p">];</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>        <span class="ss">includes</span> <span class="o">=</span> <span class="p">[</span> <span class="s2">&quot;*.{css,html,js,json,jsx,md,mdx,scss,ts,yaml}&quot;</span> <span class="p">];</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>      <span class="p">};</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="p">};</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>  <span class="p">};</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 <h2 id="checks">Checks</h2>
 <p>Running <code>nix flake check</code> will build all the devshells and Nix packages, as well as check the formatting with <a href="https://treefmt.com">treefmt</a>
