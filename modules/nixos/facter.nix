@@ -9,7 +9,7 @@
     ./disk.nix
     ./keyboard.nix
     ./firmware.nix
-    ./graphics.nix
+    ./graphics
     ./networking
     ./system.nix
     ./virtualisation.nix

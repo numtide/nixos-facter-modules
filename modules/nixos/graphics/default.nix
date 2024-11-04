@@ -1,9 +1,12 @@
 { lib, config, ... }:
 let
-  facterLib = import ../../lib/lib.nix lib;
+  facterLib = import ../../../lib/lib.nix lib;
   cfg = config.facter.detected.graphics;
 in
 {
+  imports = [
+    ./amd.nix
+  ];
   options.facter.detected = {
     graphics.enable = lib.mkEnableOption "Enable the Graphics module" // {
       default = builtins.length (config.facter.report.hardware.monitor or [ ]) > 0;
