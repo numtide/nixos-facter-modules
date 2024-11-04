@@ -17,6 +17,7 @@ inputs.treefmt-nix.lib.mkWrapper pkgs {
   settings = {
     global.excludes = [
       "LICENSE"
+      "*.narHash"
       # unsupported extensions
       "*.{gif,png,svg,tape,mts,lock,mod,sum,toml,env,envrc,gitignore}"
     ];
