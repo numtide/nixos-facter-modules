@@ -67,7 +67,7 @@ pkgs.mkShellNoCC {
 
       facterMarkdown = mkMarkdown "facter" eval.options.facter.detected;
       otherMarkdown = lib.mapAttrsToList mkMarkdown (
-        lib.filterAttrs (n: v: n != "detected") eval.options.facter
+        lib.filterAttrs (n: _v: n != "detected") eval.options.facter
       );
 
       optionsMarkdown = pkgs.symlinkJoin {
