@@ -56,12 +56,16 @@
           }
         );
         formatter = eachSystem (
-          { pkgs, ... }: pkgs.callPackage ./formatter.nix { inputs = publicInputs // privateInputs; }
+          { pkgs, ... }:
+          (pkgs.callPackage ./formatter.nix { inputs = publicInputs // privateInputs; }).config.build.wrapper
         );
 
         checks = eachSystem (
           { pkgs, ... }:
           {
+            formatting =
+              (pkgs.callPackage ./formatter.nix { inputs = publicInputs // privateInputs; }).config.build.check
+                publicInputs.self;
             minimal-machine =
               (pkgs.nixos [
                 publicInputs.self.nixosModules.facter
