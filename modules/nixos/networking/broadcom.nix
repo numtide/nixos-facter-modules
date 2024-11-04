@@ -8,7 +8,11 @@ in
     full_mac.enable = mkEnableOption "Enable the Facter Broadcom Full MAC module" // {
 
       default = lib.any (
-        { vendor, device, ... }:
+        {
+          vendor ? { },
+          device ? { },
+          ...
+        }:
         # vendor (0x14e4) Broadcom Inc. and subsidiaries
         (vendor.value or 0) == 5348
         && (lib.elem (device.value or 0) [
@@ -36,7 +40,11 @@ in
     sta.enable = mkEnableOption "Enable the Facter Broadcom STA module" // {
 
       default = lib.any (
-        { vendor, device, ... }:
+        {
+          vendor ? { },
+          device ? { },
+          ...
+        }:
         # vendor (0x14e4) Broadcom Inc. and subsidiaries
         (vendor.value or 0) == 5348
         && (lib.elem (device.value or 0) [

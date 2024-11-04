@@ -8,7 +8,11 @@ in
     _2200BG.enable = mkEnableOption "Enable the Facter Intel 2200BG module" // {
 
       default = lib.any (
-        { vendor, device, ... }:
+        {
+          vendor ? { },
+          device ? { },
+          ...
+        }:
         # vendor (0x8086) Intel Corp.
         (vendor.value or 0) == 32902
         && (lib.elem (device.value or 0) [
@@ -26,7 +30,11 @@ in
     _3945ABG.enable = mkEnableOption "Enable the Facter Intel 3945ABG module" // {
 
       default = lib.any (
-        { vendor, device, ... }:
+        {
+          vendor ? { },
+          device ? { },
+          ...
+        }:
         # vendor (0x8086) Intel Corp.
         (vendor.value or 0) == 32902
         && (lib.elem (device.value or 0) [
