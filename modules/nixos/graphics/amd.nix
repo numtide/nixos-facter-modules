@@ -12,6 +12,6 @@ in
     };
   };
   config = lib.mkIf cfg.enable {
-    services.xserver.videoDrivers = [ "amdgpu" ];
+    services.xserver.videoDrivers = [ "modesettings" ];
   };
 }
