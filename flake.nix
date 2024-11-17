@@ -27,7 +27,7 @@
           builtins.map (system: {
             name = system;
             value = f {
-              pkgs = import privateInputs.nixpkgs { inherit system; };
+              pkgs = privateInputs.nixpkgs.legacyPackages.${system};
               inherit system;
             };
           }) systems
