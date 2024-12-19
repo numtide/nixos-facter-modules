@@ -2,6 +2,7 @@
 {
   imports = [
     ./broadcom.nix
+    ./initrd.nix
     ./intel.nix
   ];
 
